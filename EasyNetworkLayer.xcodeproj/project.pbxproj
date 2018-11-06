@@ -14,6 +14,10 @@
 		F5FF0FFB2191C8BC0083FE03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5FF0FF92191C8BC0083FE03 /* LaunchScreen.storyboard */; };
 		F5FF10062191C8BC0083FE03 /* EasyNetworkLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF10052191C8BC0083FE03 /* EasyNetworkLayerTests.swift */; };
 		F5FF10112191C8BC0083FE03 /* EasyNetworkLayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF10102191C8BC0083FE03 /* EasyNetworkLayerUITests.swift */; };
+		F5FF10212191CB110083FE03 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF10202191CB110083FE03 /* Fetcher.swift */; };
+		F5FF10232191CBAB0083FE03 /* FetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF10222191CBAB0083FE03 /* FetchError.swift */; };
+		F5FF10252191CBDB0083FE03 /* FetchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF10242191CBDB0083FE03 /* FetchResult.swift */; };
+		F5FF10292191DCFD0083FE03 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF10282191DCFD0083FE03 /* Source.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		F5FF100C2191C8BC0083FE03 /* EasyNetworkLayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyNetworkLayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5FF10102191C8BC0083FE03 /* EasyNetworkLayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyNetworkLayerUITests.swift; sourceTree = "<group>"; };
 		F5FF10122191C8BC0083FE03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5FF10202191CB110083FE03 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
+		F5FF10222191CBAB0083FE03 /* FetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchError.swift; sourceTree = "<group>"; };
+		F5FF10242191CBDB0083FE03 /* FetchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchResult.swift; sourceTree = "<group>"; };
+		F5FF10282191DCFD0083FE03 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +105,10 @@
 		F5FF0FEF2191C8B80083FE03 /* EasyNetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				F5FF101F2191CAE70083FE03 /* Network */,
 				F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */,
 				F5FF0FF22191C8B80083FE03 /* ViewController.swift */,
+				F5FF10282191DCFD0083FE03 /* Source.swift */,
 				F5FF0FF42191C8B80083FE03 /* Main.storyboard */,
 				F5FF0FF72191C8BC0083FE03 /* Assets.xcassets */,
 				F5FF0FF92191C8BC0083FE03 /* LaunchScreen.storyboard */,
@@ -123,6 +133,16 @@
 				F5FF10122191C8BC0083FE03 /* Info.plist */,
 			);
 			path = EasyNetworkLayerUITests;
+			sourceTree = "<group>";
+		};
+		F5FF101F2191CAE70083FE03 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F5FF10202191CB110083FE03 /* Fetcher.swift */,
+				F5FF10222191CBAB0083FE03 /* FetchError.swift */,
+				F5FF10242191CBDB0083FE03 /* FetchResult.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +277,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5FF0FF32191C8B80083FE03 /* ViewController.swift in Sources */,
+				F5FF10252191CBDB0083FE03 /* FetchResult.swift in Sources */,
+				F5FF10292191DCFD0083FE03 /* Source.swift in Sources */,
 				F5FF0FF12191C8B80083FE03 /* AppDelegate.swift in Sources */,
+				F5FF10212191CB110083FE03 /* Fetcher.swift in Sources */,
+				F5FF10232191CBAB0083FE03 /* FetchError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
