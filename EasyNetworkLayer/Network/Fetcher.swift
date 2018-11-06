@@ -8,46 +8,20 @@
 
 import Foundation
 
-public let baseUrl = "newsapi.org"
 
-public typealias URLParameter = [String: AnyObject]?
 
-public class Fetcher: NSObject {
+public class Fetcher {
     
     let urlSession = URLSession(configuration: URLSessionConfiguration.default)
     
-    private func fetchData(atURL urlString: String, parameters: URLParameter?, handler: @escaping handler) {
+    private func fetchData(endpointType: Endpoint, handler: @escaping handler) {
         
-        let possibleURL: URL?
-        
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = baseUrl
-        
-        var slashAddedUrlString = urlString
-        if !urlString.hasPrefix("/") {
-            slashAddedUrlString = "/v2" + "/".appending(urlString)
-        }
-        components.path = slashAddedUrlString
-        
-        if let parameters = parameters {
-            components.queryItems = parameters?.map({ element in
-                return URLQueryItem(name: element.key, value: element.value as? String)
-            })
-        }
-        
-        possibleURL = components.url
-        
-        guard let url = possibleURL else {
-            handler(.error(FetchError.url))
+        guard let request = endpointType.request else {
+            handler(.error(.url))
             return
         }
         
-        #if DEBUG
-        print("RequestURL: \(url)")
-        #endif
-        
-        urlSession.dataTask(with: URLRequest(url: url), completionHandler: { data, response, error in
+        urlSession.dataTask(with: request, completionHandler: { data, response, error in
             if let data = data {
                 handler(.success(result: data))
             } else {
@@ -57,9 +31,9 @@ public class Fetcher: NSObject {
         
     }
     
-    public func fetch<ObjectType: Decodable>(ofObjectType objectType: ObjectType.Type = ObjectType.self, atURL urlString: String, parameters: URLParameter = nil, handler: @escaping handler) {
+    public func fetch<ObjectType: Decodable>(endpointType: Endpoint, objectType: ObjectType.Type = ObjectType.self, handler: @escaping handler) {
         
-        self.fetchData(atURL: urlString, parameters: parameters) { result in
+        self.fetchData(endpointType: endpointType) { result in
             
             switch result {
             case .error( _):

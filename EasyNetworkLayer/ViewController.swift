@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 //        }
         
         let fetcher = Fetcher()
-        fetcher.fetch(ofObjectType: ArticleResponse.self, atURL: "top-headlines", parameters: ["country": "tr" as AnyObject,"apiKey": "3073a66586c646cb8ca68c805efdff12" as AnyObject]) { (result) in
+        fetcher.fetch(endpointType: NewsFeed.getTopHeadlines(countryId: "tr"), objectType: ArticleResponse.self) { (result) in
             switch result {
             case .error(let error):
                 print(error)
@@ -41,10 +41,7 @@ class ViewController: UIViewController {
                 break
             }
         }
-        
     }
-
-    
     
 }
 
