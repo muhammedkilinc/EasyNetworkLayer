@@ -27,6 +27,10 @@ public extension Endpoint {
         return "3073a66586c646cb8ca68c805efdff12"
     }
     
+    public var additionalHeaders: Parameters {
+        return ["Authorization": "Bearer \(apiKey)"]
+    }
+    
     var urlComponents: URLComponents {
         var components = URLComponents()
         components.scheme = "https"
@@ -52,7 +56,8 @@ public extension Endpoint {
             switch self.task {
             case .request:
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            case .requestParameters(let bodyParameters, let bodyEncoding, let urlParameters):
+            case .requestParameters(let bodyParameters, let bodyEncoding, let urlParameters, let headers):
+                self.addAdditionalHeaders(headers, request: &request)
                 try self.configureParameters(bodyParameters: bodyParameters, bodyEncoding: bodyEncoding, urlParameters: urlParameters, request: &request)
             }
             
@@ -68,6 +73,14 @@ public extension Endpoint {
             try bodyEncoding.encode(urlRequest: &request, bodyParameters: bodyParameters, urlParameters: urlParameters)
         } catch {
             throw error
+        }
+    }
+    
+    fileprivate func addAdditionalHeaders(_ additionalHeaders: Parameters?, request: inout URLRequest) {
+        guard let headers = additionalHeaders as? [String: String] else { return }
+        
+        headers.forEach { (element) in
+            request.setValue(element.value, forHTTPHeaderField: element.key)
         }
     }
 }
@@ -86,9 +99,9 @@ extension NewsFeed: Endpoint {
     public var task: FetchTask {
         switch self {
         case .getSources:
-            return FetchTask.requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: parameters)
+            return FetchTask.requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: parameters, headers: additionalHeaders)
         case .getTopHeadlines( _):
-            return FetchTask.request
+            return FetchTask.requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: parameters, headers: additionalHeaders)
         }
     }
     
@@ -105,7 +118,6 @@ extension NewsFeed: Endpoint {
         switch self {
         case .getTopHeadlines(let countryId, let category, let sources, let query):
             var params: [String: Any] = [:]
-            params["apiKey"] = apiKey
             if let sources = sources {
                 params["sources"] = sources.joined(separator: ",")
             } else {
@@ -121,7 +133,7 @@ extension NewsFeed: Endpoint {
             }
             return params
         default:
-            return ["apiKey": apiKey]
+            return [:]
         }
     }
     
