@@ -41,30 +41,31 @@ class ViewController: UIViewController {
             }
         }
         
-//        let fetcher = Fetcher()
-//        fetcher.fetch(endpointType: NewsFeed.getTopHeadlines(countryId: "tr"), objectType: ArticleResponse.self) { (result) in
-//            switch result {
-//            case .error(let error):
-//                print(error)
-//                break
-//            case .success(result: let result):
-//                if let item = result as? ArticleResponse {
-//                    print(item.articles)
-//                    self.dataArray = item.articles
-//
-//                    DispatchQueue.main.async {
-//                        self.tableView.reloadData()
-//                    }
-//                }
-//                break
-//            }
-//        }
     }
     
 }
 
 extension ViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = dataArray[indexPath.row]
+
+        tableView.deselectRow(at: indexPath, animated: true)
+        let fetcher = Fetcher()
+        let endPoint = NewsFeed.getTopHeadlines(countryId: "tr", category: nil, sources: [item.id], query: nil)
+        fetcher.fetch(endpointType: endPoint, objectType: ArticleResponse.self) { (result) in
+            switch result {
+            case .error(let error):
+                print(error)
+                break
+            case .success(result: let result):
+                if let item = result as? ArticleResponse {
+                    print(item.articles)
+                }
+                break
+            }
+        }
+
+    }
 }
 
 extension ViewController: UITableViewDataSource {

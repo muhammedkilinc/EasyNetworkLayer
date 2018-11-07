@@ -21,6 +21,8 @@
 		F5FF102B2191E10C0083FE03 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF102A2191E10C0083FE03 /* Article.swift */; };
 		F5FF102E2191E3870083FE03 /* FetchMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF102D2191E3870083FE03 /* FetchMethod.swift */; };
 		F5FF10302191E3AD0083FE03 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF102F2191E3AD0083FE03 /* Endpoint.swift */; };
+		F5FF10322192C7290083FE03 /* Encoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF10312192C7290083FE03 /* Encoders.swift */; };
+		F5FF10342192C9A80083FE03 /* FetchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF10332192C9A80083FE03 /* FetchTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		F5FF102A2191E10C0083FE03 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		F5FF102D2191E3870083FE03 /* FetchMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMethod.swift; sourceTree = "<group>"; };
 		F5FF102F2191E3AD0083FE03 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		F5FF10312192C7290083FE03 /* Encoders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoders.swift; sourceTree = "<group>"; };
+		F5FF10332192C9A80083FE03 /* FetchTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,8 @@
 				F5FF10242191CBDB0083FE03 /* FetchResult.swift */,
 				F5FF102D2191E3870083FE03 /* FetchMethod.swift */,
 				F5FF102F2191E3AD0083FE03 /* Endpoint.swift */,
+				F5FF10312192C7290083FE03 /* Encoders.swift */,
+				F5FF10332192C9A80083FE03 /* FetchTask.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -301,6 +307,8 @@
 				F5FF0FF12191C8B80083FE03 /* AppDelegate.swift in Sources */,
 				F5FF10212191CB110083FE03 /* Fetcher.swift in Sources */,
 				F5FF10232191CBAB0083FE03 /* FetchError.swift in Sources */,
+				F5FF10322192C7290083FE03 /* Encoders.swift in Sources */,
+				F5FF10342192C9A80083FE03 /* FetchTask.swift in Sources */,
 				F5FF102E2191E3870083FE03 /* FetchMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

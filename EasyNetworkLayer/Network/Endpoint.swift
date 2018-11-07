@@ -8,13 +8,13 @@
 
 import Foundation
 
-public typealias URLParameter = [String: AnyObject]?
-
 public protocol Endpoint {
     var base: String { get }
     var apiKey: String { get }
     var path: String { get }
-    var parameters: URLParameter? { get }
+    var parameters: Parameters? { get }
+    var task: FetchTask { get }
+    var type: FetchMethod { get }
 }
 
 public extension Endpoint {
@@ -32,17 +32,11 @@ public extension Endpoint {
         components.scheme = "https"
         components.host = base
         
-        var slashAddedUrlString = path
-        if !path.hasPrefix("/") {
-            slashAddedUrlString = "/v2" + "/".appending(path)
-        }
-        components.path = slashAddedUrlString
+        var fullPath = path
+        fullPath = "/v2" + "/".appending(path)
+
+        components.path = fullPath
         
-        if let parameters = parameters as? [String: AnyObject] {
-            components.queryItems = parameters.map({ element in
-                return URLQueryItem(name: element.key, value: element.value as? String)
-            })
-        }
         return components
     }
     
@@ -50,17 +44,53 @@ public extension Endpoint {
         guard let url = urlComponents.url else {
             return nil
         }
-        print(url)
-        return URLRequest(url: url)
+
+        var request = URLRequest(url: url)
+        request.httpMethod = self.type.rawValue
+
+        do {
+            switch self.task {
+            case .request:
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            case .requestParameters(let bodyParameters, let bodyEncoding, let urlParameters):
+                try self.configureParameters(bodyParameters: bodyParameters, bodyEncoding: bodyEncoding, urlParameters: urlParameters, request: &request)
+            }
+            
+            return request
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
+    private func configureParameters(bodyParameters: Parameters?, bodyEncoding: ParameterEncoding, urlParameters: Parameters?, request: inout URLRequest) throws {
+        do {
+            try bodyEncoding.encode(urlRequest: &request, bodyParameters: bodyParameters, urlParameters: urlParameters)
+        } catch {
+            throw error
+        }
     }
 }
 
 public enum NewsFeed {
     case getSources
-    case getTopHeadlines(countryId: String)
+    case getTopHeadlines(countryId: String?, category: String?, sources: [String]?, query: String?)
 }
 
 extension NewsFeed: Endpoint {
+    
+    public var type: FetchMethod {
+        return .GET
+    }
+    
+    public var task: FetchTask {
+        switch self {
+        case .getSources:
+            return FetchTask.requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: parameters)
+        case .getTopHeadlines( _):
+            return FetchTask.request
+        }
+    }
     
     public var path: String {
         switch self {
@@ -71,12 +101,28 @@ extension NewsFeed: Endpoint {
         }
     }
     
-    public var parameters: URLParameter? {
+    public var parameters: Parameters? {
         switch self {
-        case .getTopHeadlines(let countryId):
-            return ["country": countryId as AnyObject, "apiKey": apiKey as AnyObject]
+        case .getTopHeadlines(let countryId, let category, let sources, let query):
+            var params: [String: Any] = [:]
+            params["apiKey"] = apiKey
+            if let sources = sources {
+                params["sources"] = sources.joined(separator: ",")
+            } else {
+                if let country = countryId {
+                    params["country"] = country
+                }
+                if let category = category {
+                    params["category"] = category
+                }
+                if let query = query {
+                    params["q"] = query
+                }
+            }
+            return params
         default:
-            return ["apiKey": apiKey as AnyObject]
+            return ["apiKey": apiKey]
         }
     }
+    
 }

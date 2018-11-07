@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 public class Fetcher {
     
     let urlSession = URLSession(configuration: URLSessionConfiguration.default)
@@ -20,7 +18,7 @@ public class Fetcher {
             handler(.error(.url))
             return
         }
-        
+        print(request.url ?? "Error url")
         urlSession.dataTask(with: request, completionHandler: { data, response, error in
             if let data = data {
                 handler(.success(result: data))
