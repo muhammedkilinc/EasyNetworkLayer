@@ -12,7 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var dataArray: [Source] = []
-    
+    let cellType: CellProtocol.Type = SourceTableViewCell.self
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +21,11 @@ class ViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+
+        tableView.register(UINib(nibName: cellType.nibName(), bundle: nil), forCellReuseIdentifier: cellType.identifier())
+
         let fetcher = Fetcher()
         fetcher.fetch(endpointType: NewsFeed.getSources, objectType: SourceResponse.self) { (result) in
             switch result {
@@ -35,7 +41,6 @@ class ViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-
                 }
                 break
             }
@@ -49,22 +54,11 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = dataArray[indexPath.row]
 
-        tableView.deselectRow(at: indexPath, animated: true)
-        let fetcher = Fetcher()
-        let endPoint = NewsFeed.getTopHeadlines(countryId: "tr", category: nil, sources: [item.id], query: nil)
-        fetcher.fetch(endpointType: endPoint, objectType: ArticleResponse.self) { (result) in
-            switch result {
-            case .error(let error):
-                print(error)
-                break
-            case .success(result: let result):
-                if let item = result as? ArticleResponse {
-                    print(item.articles)
-                }
-                break
-            }
-        }
+        let vc = NewsListViewController.instantiateFromStoryboard()
+        vc.source = item
+        self.navigationController?.pushViewController(vc, animated: true)
 
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -75,8 +69,16 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath)
-        cell.textLabel?.text = dataArray[indexPath.row].name
+        let data: Any?
+        
+        data = dataArray[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellType.identifier(), for: indexPath)
+        
+        if let cell = cell as? CellProtocol {
+            cell.config(data)
+        }
+
         return cell
     
     }

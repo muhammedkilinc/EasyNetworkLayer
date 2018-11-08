@@ -9,8 +9,6 @@
 import Foundation
 
 public protocol Endpoint {
-    var base: String { get }
-    var apiKey: String { get }
     var path: String { get }
     var parameters: Parameters? { get }
     var task: FetchTask { get }

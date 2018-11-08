@@ -24,6 +24,9 @@ public struct Article {
     public var description: String?
     public var url: URL?
     public var publishedAt: String?
+    public var urlToImage: URL?
+    public var content: String?
+    public var source: Source?
 }
 
 extension Article: Decodable {

@@ -23,6 +23,15 @@
 		F5FF10302191E3AD0083FE03 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF102F2191E3AD0083FE03 /* Endpoint.swift */; };
 		F5FF10322192C7290083FE03 /* Encoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF10312192C7290083FE03 /* Encoders.swift */; };
 		F5FF10342192C9A80083FE03 /* FetchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF10332192C9A80083FE03 /* FetchTask.swift */; };
+		F5FF103721942F970083FE03 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF103621942F970083FE03 /* CellProtocol.swift */; };
+		F5FF103C21942FE60083FE03 /* SourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF103A21942FE60083FE03 /* SourceTableViewCell.swift */; };
+		F5FF103D21942FE60083FE03 /* SourceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5FF103B21942FE60083FE03 /* SourceTableViewCell.xib */; };
+		F5FF103F219447C50083FE03 /* Cachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF103E219447C50083FE03 /* Cachable.swift */; };
+		F5FF1041219451200083FE03 /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF1040219451200083FE03 /* NewsListViewController.swift */; };
+		F5FF1044219452C80083FE03 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF1042219452C80083FE03 /* NewsTableViewCell.swift */; };
+		F5FF1045219452C80083FE03 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5FF1043219452C80083FE03 /* NewsTableViewCell.xib */; };
+		F5FF1047219455550083FE03 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF1046219455550083FE03 /* UIViewController+Utils.swift */; };
+		F5FF1049219457D00083FE03 /* UIStoryboard+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF1048219457D00083FE03 /* UIStoryboard+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +74,15 @@
 		F5FF102F2191E3AD0083FE03 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		F5FF10312192C7290083FE03 /* Encoders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoders.swift; sourceTree = "<group>"; };
 		F5FF10332192C9A80083FE03 /* FetchTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTask.swift; sourceTree = "<group>"; };
+		F5FF103621942F970083FE03 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
+		F5FF103A21942FE60083FE03 /* SourceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTableViewCell.swift; sourceTree = "<group>"; };
+		F5FF103B21942FE60083FE03 /* SourceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceTableViewCell.xib; sourceTree = "<group>"; };
+		F5FF103E219447C50083FE03 /* Cachable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cachable.swift; sourceTree = "<group>"; };
+		F5FF1040219451200083FE03 /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
+		F5FF1042219452C80083FE03 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		F5FF1043219452C80083FE03 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		F5FF1046219455550083FE03 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		F5FF1048219457D00083FE03 /* UIStoryboard+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +133,12 @@
 		F5FF0FEF2191C8B80083FE03 /* EasyNetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */,
 				F5FF101F2191CAE70083FE03 /* Network */,
 				F5FF102C2191E3120083FE03 /* Models */,
-				F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */,
-				F5FF0FF22191C8B80083FE03 /* ViewController.swift */,
+				F5FF104A21945F6A0083FE03 /* Extensions */,
+				F5FF104C21945F8B0083FE03 /* ViewController */,
+				F5FF104B21945F7D0083FE03 /* Cell */,
 				F5FF0FF42191C8B80083FE03 /* Main.storyboard */,
 				F5FF0FF72191C8BC0083FE03 /* Assets.xcassets */,
 				F5FF0FF92191C8BC0083FE03 /* LaunchScreen.storyboard */,
@@ -166,6 +186,37 @@
 				F5FF102A2191E10C0083FE03 /* Article.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F5FF104A21945F6A0083FE03 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F5FF1046219455550083FE03 /* UIViewController+Utils.swift */,
+				F5FF1048219457D00083FE03 /* UIStoryboard+Utils.swift */,
+				F5FF103E219447C50083FE03 /* Cachable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F5FF104B21945F7D0083FE03 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F5FF103621942F970083FE03 /* CellProtocol.swift */,
+				F5FF103A21942FE60083FE03 /* SourceTableViewCell.swift */,
+				F5FF103B21942FE60083FE03 /* SourceTableViewCell.xib */,
+				F5FF1042219452C80083FE03 /* NewsTableViewCell.swift */,
+				F5FF1043219452C80083FE03 /* NewsTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F5FF104C21945F8B0083FE03 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F5FF0FF22191C8B80083FE03 /* ViewController.swift */,
+				F5FF1040219451200083FE03 /* NewsListViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,9 +323,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5FF103D21942FE60083FE03 /* SourceTableViewCell.xib in Resources */,
 				F5FF0FFB2191C8BC0083FE03 /* LaunchScreen.storyboard in Resources */,
 				F5FF0FF82191C8BC0083FE03 /* Assets.xcassets in Resources */,
 				F5FF0FF62191C8B80083FE03 /* Main.storyboard in Resources */,
+				F5FF1045219452C80083FE03 /* NewsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,13 +352,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5FF1041219451200083FE03 /* NewsListViewController.swift in Sources */,
+				F5FF103F219447C50083FE03 /* Cachable.swift in Sources */,
+				F5FF1047219455550083FE03 /* UIViewController+Utils.swift in Sources */,
+				F5FF1044219452C80083FE03 /* NewsTableViewCell.swift in Sources */,
 				F5FF102B2191E10C0083FE03 /* Article.swift in Sources */,
 				F5FF10302191E3AD0083FE03 /* Endpoint.swift in Sources */,
+				F5FF103C21942FE60083FE03 /* SourceTableViewCell.swift in Sources */,
 				F5FF0FF32191C8B80083FE03 /* ViewController.swift in Sources */,
 				F5FF10252191CBDB0083FE03 /* FetchResult.swift in Sources */,
 				F5FF10292191DCFD0083FE03 /* Source.swift in Sources */,
+				F5FF1049219457D00083FE03 /* UIStoryboard+Utils.swift in Sources */,
 				F5FF0FF12191C8B80083FE03 /* AppDelegate.swift in Sources */,
 				F5FF10212191CB110083FE03 /* Fetcher.swift in Sources */,
+				F5FF103721942F970083FE03 /* CellProtocol.swift in Sources */,
 				F5FF10232191CBAB0083FE03 /* FetchError.swift in Sources */,
 				F5FF10322192C7290083FE03 /* Encoders.swift in Sources */,
 				F5FF10342192C9A80083FE03 /* FetchTask.swift in Sources */,

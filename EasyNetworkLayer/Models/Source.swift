@@ -25,7 +25,6 @@ public struct Source {
     public var language: String?
     public var country: String?
     public var url: URL?
-    public var artworkURL: URL?
 }
 
 extension Source: Decodable {
