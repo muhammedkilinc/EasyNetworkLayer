@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 
 public protocol CellProtocol: class {
-    static func identifier() -> String
-    static func nibName() -> String
+    static var identifier: String { get }
+    static var nibName: String { get }
 
     func config(_ data: Any?)
 }
 
 extension CellProtocol {
-    static func identifier() -> String {
+    static var identifier: String {
         return String(describing: self) + "identifier"
     }
     
-    static func nibName() -> String {
+    static var nibName: String {
         return String(describing: self)
     }
 }
@@ -36,11 +36,11 @@ extension UITableView {
     
     func registerReusableCell<T: BaseCell>(_: T.Type) {
 //        register(T.self, forCellReuseIdentifier: T.identifier())
-        register(UINib(nibName: T.nibName(), bundle: nil), forCellReuseIdentifier: T.identifier())
+        register(UINib(nibName: T.nibName, bundle: nil), forCellReuseIdentifier: T.identifier)
     }
     
     func dequeueReusableCell<T: BaseCell>(indexPath: IndexPath) -> T {
-        return dequeueReusableCell(withIdentifier: T.identifier(), for: indexPath as IndexPath) as! T
+        return dequeueReusableCell(withIdentifier: T.identifier, for: indexPath as IndexPath) as! T
     }
 }
 

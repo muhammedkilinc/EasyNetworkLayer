@@ -57,7 +57,7 @@ class GenericDataSource : NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellType.identifier(), for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellType.identifier, for: indexPath)
         
         let item = self.data.value[indexPath.row]
         if let cell = cell as? CellProtocol {
@@ -66,8 +66,3 @@ class GenericDataSource : NSObject, UITableViewDataSource {
         return cell
     }
 }
-//
-//class SourceDataSource : GenericDataSource, UITableViewDataSource {
-//
-//
-//}
