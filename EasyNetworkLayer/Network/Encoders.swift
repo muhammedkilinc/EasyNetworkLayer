@@ -51,7 +51,7 @@ public struct URLParameterEncoder: ParameterEncoder {
             urlRequest.url = urlComponents.url
         }
         
-        if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
+        if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil { // why check for nil, you should ensure you put right parameters just override value if exists
             urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
         }
         

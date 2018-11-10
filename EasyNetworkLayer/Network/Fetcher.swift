@@ -19,6 +19,7 @@ public class Fetcher {
             return
         }
         print(request.url ?? "Error url")
+			// how do I cancel this request since I don't need it to continue ??
         urlSession.dataTask(with: request, completionHandler: { data, response, error in
             if let data = data {
                 handler(.success(result: data))
