@@ -11,6 +11,11 @@ import UIKit
 
 extension UIStoryboard {
     static func main() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: Bundle.main) }
+	
+	/// init storyborad by name default name is 'Main' if empty
+	public static func forName(_ name: String = "Main") -> UIStoryboard {
+		return UIStoryboard(name: name, bundle: Bundle.main)
+	}
 }
 
 
