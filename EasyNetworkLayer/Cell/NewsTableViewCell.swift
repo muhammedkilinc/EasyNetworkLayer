@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsTableViewCell: UITableViewCell, CellProtocol {
+class NewsTableViewCell: BaseCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
@@ -28,7 +28,7 @@ class NewsTableViewCell: UITableViewCell, CellProtocol {
         // Configure the view for the selected state
     }
     
-    func config(_ data: Any?) {
+    override func config(_ data: Any?) {
         if let item = data as? Article {
             titleLabel?.text = item.title
             descLabel?.text = item.description
