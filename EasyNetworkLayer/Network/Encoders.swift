@@ -51,10 +51,7 @@ public struct URLParameterEncoder: ParameterEncoder {
             urlRequest.url = urlComponents.url
         }
         
-        if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil { // why check for nil, you should ensure you put right parameters just override value if exists
-            urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        }
-        
+        urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
     }
 }
 
@@ -64,9 +61,7 @@ public struct JSONParameterEncoder: ParameterEncoder {
         do {
             let jsonAsData = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
             urlRequest.httpBody = jsonAsData
-            if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
-                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            }
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         } catch {
             throw FetchError.encode
         }

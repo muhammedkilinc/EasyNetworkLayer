@@ -12,13 +12,13 @@ import UIKit
 
 extension UIViewController {
     
-	class func instantiateFromStoryboard(_ storyboradName: String? = nil) -> Self { // name was ambigous name of waht controller or strory board :D
-        return instantiateFromStoryboardHelper(storyboradName)
+	class func instantiateFromStoryboard(name: String? = nil) -> Self { // name was ambigous name of waht controller or strory board :D
+        return instantiateFromStoryboardHelper(name)
     }
     
-	fileprivate class func instantiateFromStoryboardHelper<T>(_ storyboardName: String?) -> T where T: UIViewController {
+	fileprivate class func instantiateFromStoryboardHelper<T>(_ name: String?) -> T where T: UIViewController {
 		let storyboard: UIStoryboard
-		if let storyboardName = storyboardName {
+		if let storyboardName = name {
 			storyboard = UIStoryboard.forName(storyboardName)
 		} else {
 			storyboard = UIStoryboard.forName()
@@ -29,12 +29,8 @@ extension UIViewController {
 		fatalError("\(self.storyboardIdentifier) can not be found in storyborad, for \(T.self) controller") // provide message if it fails
 	}
     
-   // static var storyboardIdentifier: String {
-   //     return String(describing: self)
-   // }
-	
 	static var storyboardIdentifier: String {
-		return "\(String(describing: self).lowercased)Identifier" // will provide camel cased identifier :D
+		return "\(String(describing: self).lowercased)Identifier"
 	}
     
     func goBack() { // why not call it 'popSelf'
