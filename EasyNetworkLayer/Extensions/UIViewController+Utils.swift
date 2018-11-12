@@ -16,7 +16,7 @@ extension UIViewController {
         return instantiateFromStoryboardHelper(name)
     }
     
-	fileprivate class func instantiateFromStoryboardHelper<T>(_ name: String?) -> T where T: UIViewController {
+    fileprivate class func instantiateFromStoryboardHelper<T: UIViewController>(_ name: String?) -> T {
 		let storyboard: UIStoryboard
 		if let storyboardName = name {
 			storyboard = UIStoryboard.forName(storyboardName)
@@ -33,7 +33,7 @@ extension UIViewController {
 		return "\(String(describing: self).lowercased)Identifier"
 	}
     
-    func goBack() { // why not call it 'popSelf'
-        _ = self.navigationController?.popViewController(animated: true)
+    func popSelf(animated: Bool = true) { // why not call it 'popSelf'
+        _ = self.navigationController?.popViewController(animated: animated)
     }
 }
