@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DEB28E7219DBC670086A017 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEB28E6219DBC670086A017 /* Cells.swift */; };
 		F5FF0FF12191C8B80083FE03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */; };
 		F5FF0FF32191C8B80083FE03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF0FF22191C8B80083FE03 /* ViewController.swift */; };
 		F5FF0FF62191C8B80083FE03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5FF0FF42191C8B80083FE03 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3DEB28E6219DBC670086A017 /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
 		F5FF0FED2191C8B80083FE03 /* EasyNetworkLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyNetworkLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5FF0FF22191C8B80083FE03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				F5FF103B21942FE60083FE03 /* SourceTableViewCell.xib */,
 				F5FF1042219452C80083FE03 /* NewsTableViewCell.swift */,
 				F5FF1043219452C80083FE03 /* NewsTableViewCell.xib */,
+				3DEB28E6219DBC670086A017 /* Cells.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				F5FF10322192C7290083FE03 /* Encoders.swift in Sources */,
 				F5FF105021946B070083FE03 /* SourceViewModel.swift in Sources */,
 				F5FF10342192C9A80083FE03 /* FetchTask.swift in Sources */,
+				3DEB28E7219DBC670086A017 /* Cells.swift in Sources */,
 				F5FF102E2191E3870083FE03 /* FetchMethod.swift in Sources */,
 				F5FF10522195B6D90083FE03 /* TableUIController.swift in Sources */,
 			);

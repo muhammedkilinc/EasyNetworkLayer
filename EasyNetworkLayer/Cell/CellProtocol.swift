@@ -17,17 +17,18 @@ public protocol CellProtocol: class {
 }
 
 extension CellProtocol {
-    static var identifier: String {
+	// make those public so you can override BaseCell
+	public static var identifier: String {
         return String(describing: self) + "identifier"
     }
     
-    static var nibName: String {
+	public static var nibName: String {
         return String(describing: self)
     }
 }
 
-class BaseCell: UITableViewCell, CellProtocol {
-    func config(_ data: Any?) {
+open class BaseCell: UITableViewCell, CellProtocol {
+    open func config(_ data: Any?) {
         
     }
 }
