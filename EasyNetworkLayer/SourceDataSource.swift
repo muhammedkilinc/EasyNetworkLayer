@@ -43,7 +43,7 @@ class DynamicValue<T> {
 }
 
 
-class GenericDataSource : NSObject, UITableViewDataSource {
+class GenericDataSource: NSObject, UITableViewDataSource {
     var data: DynamicValue<[Any]> = DynamicValue([])
     var cellType: CellProtocol.Type!
     
@@ -66,3 +66,4 @@ class GenericDataSource : NSObject, UITableViewDataSource {
         return cell
     }
 }
+

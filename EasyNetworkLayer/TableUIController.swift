@@ -13,7 +13,7 @@ class DynamicTableUIController<Model: Any, Cell: BaseCell> {
     
     unowned var view: UIView
     var tableViewDataSource: TableViewDataSource<Model, Cell>!
-    
+
     init(view: UIView, tableView: UITableView) {
         
         self.view = view
