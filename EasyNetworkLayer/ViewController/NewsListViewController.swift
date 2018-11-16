@@ -11,16 +11,16 @@ import UIKit
 class NewsListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var UIController: DynamicTableUIController<Any, NewsTableViewCell>!
-    
+    var UIController: TableUIController<Any, NewsTableViewCell>!
+
     var source: Source!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.UIController = DynamicTableUIController<Any, NewsTableViewCell>(view: self.view, tableView: self.tableView)
-        
+        self.UIController = TableUIController<Any, NewsTableViewCell>(view: self.view, tableView: self.tableView)
+
         self.tableView.delegate = self
         self.fetchData()
     }

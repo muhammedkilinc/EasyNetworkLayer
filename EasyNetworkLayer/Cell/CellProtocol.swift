@@ -19,7 +19,7 @@ public protocol CellProtocol: class {
 extension CellProtocol {
 	// make those public so you can override BaseCell
 	public static var identifier: String {
-        return String(describing: self) + "identifier"
+        return String(describing: self) + "Identifier"
     }
     
 	public static var nibName: String {
@@ -36,46 +36,15 @@ open class BaseCell: UITableViewCell, CellProtocol {
 extension UITableView {
     
     func registerReusableCell<T: BaseCell>(_: T.Type) {
-//        register(T.self, forCellReuseIdentifier: T.identifier())
+//        register(T.self, forCellReuseIdentifier: T.identifier)
         register(UINib(nibName: T.nibName, bundle: nil), forCellReuseIdentifier: T.identifier)
     }
     
     func dequeueReusableCell<T: BaseCell>(indexPath: IndexPath) -> T {
-        return dequeueReusableCell(withIdentifier: identifierAt(indexPath: indexPath), for: indexPath as IndexPath) as! T
+        return dequeueReusableCell(withIdentifier: T.identifier, for: indexPath) as! T
     }
-	
-		func identifierAt(indexPath: IndexPath) -> String {
-			// map identifier depending on data
-			return ""
-		}
 }
 
-class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: Cell = tableView.dequeueReusableCell(indexPath: indexPath)
-        cell.config(dataSource[indexPath.row])
-        return cell
-    }
-    
-    
-    var dataSource: [Model] = [] {
-        didSet { tableView.reloadData() }
-    }
-    
-    private unowned var tableView: UITableView
-    
-     init(tableView: UITableView) {
-        self.tableView = tableView
-        
-        tableView.registerReusableCell(Cell.self)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
-    }
-    
-}
 
 
 

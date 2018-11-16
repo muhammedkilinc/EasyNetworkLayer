@@ -8,21 +8,21 @@
 
 import Foundation
 
-open class BaseUICell: BaseCell { }
-
-class TitleCell: BaseUICell {
-	// implement it here
-}
-
-class SubtitleCell: BaseUICell {
-	// impleemnte it here
-}
-
-class TextFieldCell: BaseUICell {
-	// implement it here
-}
-
-
-class UIController: DynamicTableUIController<Any, BaseUICell> {
-	// TODO go ahead do what you need to do
-}
+//open class BaseUICell: BaseCell { }
+//
+//class TitleCell: BaseUICell {
+//    // implement it here
+//}
+//
+//class SubtitleCell: BaseUICell {
+//    // impleemnte it here
+//}
+//
+//class TextFieldCell: BaseUICell {
+//    // implement it here
+//}
+//
+//
+//class UIController: DynamicTableUIController<Any, BaseUICell> {
+//    // TODO go ahead do what you need to do
+//}
