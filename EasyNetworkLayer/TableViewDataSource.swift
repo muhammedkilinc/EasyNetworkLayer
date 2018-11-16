@@ -11,11 +11,12 @@ import UIKit
 
 typealias CellTypeData = (data: Any, type: BaseCell.Type)
 
-final class TableViewDataSource: NSObject, UITableViewDataSource {
+final class TableViewMultiTypeDataSource: NSObject, UITableViewDataSource {
     
     var dataSource: [CellTypeData] = [] {
         didSet { tableView.reloadData() }
     }
+    
     var cellTypes: [BaseCell.Type] = [] {
         didSet {
             cellTypes.forEach { (item) in
@@ -47,3 +48,34 @@ final class TableViewDataSource: NSObject, UITableViewDataSource {
     }
     
 }
+
+
+final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: Cell = tableView.dequeueReusableCell(indexPath: indexPath)
+        cell.config(dataSource[indexPath.row])
+        return cell
+    }
+    
+    
+    var dataSource: [Model] = [] {
+        didSet { tableView.reloadData() }
+    }
+    
+    private unowned var tableView: UITableView
+    
+    init(tableView: UITableView) {
+        self.tableView = tableView
+        
+        tableView.registerReusableCell(Cell.self)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+}
+
+
+

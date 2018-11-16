@@ -12,14 +12,14 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var UIController: DynamicTableUIController!
+    var UIController: TableUIController<Any, SourceTableViewCell>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        self.UIController = DynamicTableUIController(view: self.view, tableView: self.tableView)
-        
+        self.UIController = TableUIController<Any, SourceTableViewCell>(view: self.view, tableView: self.tableView)
+
         self.tableView.delegate = self
         self.fetchData()
     }
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
                 if let item = result as? SourceResponse {
                     print(item.sources)
                     DispatchQueue.main.async {
-//                        self.UIController.tableViewDataSource.dataSource = item.sources
+                        self.UIController.tableViewDataSource.dataSource = item.sources
                     }
                 }
                 break
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let item = self.UIController.tableViewDataSource.dataSource[indexPath.row].data as? Source {
+        if let item = self.UIController.tableViewDataSource.dataSource[indexPath.row] as? Source {
             let vc = NewsListViewController.instantiateFromStoryboard()
             vc.source = item
             self.navigationController?.pushViewController(vc, animated: true)
