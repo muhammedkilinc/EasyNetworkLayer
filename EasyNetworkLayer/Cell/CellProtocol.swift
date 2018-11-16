@@ -41,12 +41,16 @@ extension UITableView {
     }
     
     func dequeueReusableCell<T: BaseCell>(indexPath: IndexPath) -> T {
-        return dequeueReusableCell(withIdentifier: T.identifier, for: indexPath as IndexPath) as! T
+        return dequeueReusableCell(withIdentifier: identifierAt(indexPath: indexPath), for: indexPath as IndexPath) as! T
     }
+	
+		func identifierAt(indexPath: IndexPath) -> String {
+			// map identifier depending on data
+			return ""
+		}
 }
 
-
-final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableViewDataSource {
+class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: Cell = tableView.dequeueReusableCell(indexPath: indexPath)
@@ -61,7 +65,7 @@ final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableVi
     
     private unowned var tableView: UITableView
     
-    init(tableView: UITableView) {
+     init(tableView: UITableView) {
         self.tableView = tableView
         
         tableView.registerReusableCell(Cell.self)
