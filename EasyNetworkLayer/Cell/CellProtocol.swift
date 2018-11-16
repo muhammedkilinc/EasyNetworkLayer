@@ -19,7 +19,7 @@ public protocol CellProtocol: class {
 extension CellProtocol {
 	// make those public so you can override BaseCell
 	public static var identifier: String {
-        return String(describing: self) + "identifier"
+        return String(describing: self) + "Identifier"
     }
     
 	public static var nibName: String {
@@ -36,12 +36,12 @@ open class BaseCell: UITableViewCell, CellProtocol {
 extension UITableView {
     
     func registerReusableCell<T: BaseCell>(_: T.Type) {
-//        register(T.self, forCellReuseIdentifier: T.identifier())
+//        register(T.self, forCellReuseIdentifier: T.identifier)
         register(UINib(nibName: T.nibName, bundle: nil), forCellReuseIdentifier: T.identifier)
     }
     
     func dequeueReusableCell<T: BaseCell>(indexPath: IndexPath) -> T {
-        return dequeueReusableCell(withIdentifier: T.identifier, for: indexPath as IndexPath) as! T
+        return dequeueReusableCell(withIdentifier: T.identifier, for: indexPath) as! T
     }
 }
 

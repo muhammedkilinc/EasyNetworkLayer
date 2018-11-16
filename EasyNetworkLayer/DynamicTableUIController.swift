@@ -14,14 +14,14 @@ class DynamicTableUIController {
     unowned var view: UIView
     var tableViewDataSource: TableViewMultiTypeDataSource!
 
-    init(view: UIView, tableView: UITableView) {
+    init(view: UIView, tableView: UITableView, cellTypes: [BaseCell.Type]) {
         
         self.view = view
         
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        self.tableViewDataSource = TableViewMultiTypeDataSource(tableView: tableView)
+        self.tableViewDataSource = TableViewMultiTypeDataSource(tableView: tableView, cellTypes: cellTypes)
         tableView.dataSource = tableViewDataSource
     }
 }

@@ -17,28 +17,21 @@ final class TableViewMultiTypeDataSource: NSObject, UITableViewDataSource {
         didSet { tableView.reloadData() }
     }
     
-    var cellTypes: [BaseCell.Type] = [] {
-        didSet {
-            cellTypes.forEach { (item) in
-                tableView.registerReusableCell(item)
-            }
-        }
-    }
-    
     private unowned var tableView: UITableView
     
-    init(tableView: UITableView) {
-        self.tableView = tableView
+    init(tableView: UITableView, cellTypes: [BaseCell.Type]) {
+        cellTypes.forEach { (item) in
+            tableView.registerReusableCell(item)
+        }
         
+        self.tableView = tableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.dataSource[indexPath.row]
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: item.type.identifier, for: indexPath)
-        if let cell = cell as? CellProtocol {
-            cell.config(item.data)
-        }
+        let cell = tableView.dequeueReusableCell(indexPath: indexPath)
+        cell.config(item.data)
         
         return cell
     }
@@ -52,13 +45,6 @@ final class TableViewMultiTypeDataSource: NSObject, UITableViewDataSource {
 
 final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: Cell = tableView.dequeueReusableCell(indexPath: indexPath)
-        cell.config(dataSource[indexPath.row])
-        return cell
-    }
-    
-    
     var dataSource: [Model] = [] {
         didSet { tableView.reloadData() }
     }
@@ -69,6 +55,12 @@ final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableVi
         self.tableView = tableView
         
         tableView.registerReusableCell(Cell.self)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: Cell = tableView.dequeueReusableCell(indexPath: indexPath)
+        cell.config(dataSource[indexPath.row])
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
