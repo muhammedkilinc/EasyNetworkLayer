@@ -10,22 +10,9 @@ import Foundation
 import UIKit
 
 public protocol CellProtocol: class {
-    static var identifier: String { get }
-    static var nibName: String { get }
-
     func config(_ data: Any?)
 }
 
-extension CellProtocol {
-	// make those public so you can override BaseCell
-	public static var identifier: String {
-        return String(describing: self) + "Identifier"
-    }
-    
-	public static var nibName: String {
-        return String(describing: self)
-    }
-}
 
 open class BaseCell: UITableViewCell, CellProtocol {
     open func config(_ data: Any?) {
@@ -35,13 +22,15 @@ open class BaseCell: UITableViewCell, CellProtocol {
 
 extension UITableView {
     
-    func registerReusableCell<T: BaseCell>(_: T.Type) {
+    func registerReusableCell<T: BaseCell>(type: T.Type) {
 //        register(T.self, forCellReuseIdentifier: T.identifier)
-        register(UINib(nibName: T.nibName, bundle: nil), forCellReuseIdentifier: T.identifier)
+				print("nib: \(String(describing: type)) identifier: \(String(describing: type))Identifier")
+				register(UINib(nibName: String(describing: type), bundle: nil), forCellReuseIdentifier: "\(String(describing: type))Identifier")
     }
     
-    func dequeueReusableCell<T: BaseCell>(indexPath: IndexPath) -> T {
-        return dequeueReusableCell(withIdentifier: T.identifier, for: indexPath) as! T
+	func dequeueReusableCell<T: BaseCell>(type: T.Type, indexPath: IndexPath) -> T {
+				print("dequeu identifier: \(String(describing: T.self))Identifier")
+        return dequeueReusableCell(withIdentifier: "\(String(describing: type))Identifier", for: indexPath) as! T
     }
 }
 
