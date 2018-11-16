@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-class DynamicTableUIController<Model: Any, Cell: BaseCell> {
+class DynamicTableUIController {
     
     unowned var view: UIView
-    var tableViewDataSource: TableViewDataSource<Model, Cell>!
+    var tableViewDataSource: TableViewDataSource!
 
     init(view: UIView, tableView: UITableView) {
         
@@ -21,7 +21,7 @@ class DynamicTableUIController<Model: Any, Cell: BaseCell> {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        self.tableViewDataSource = TableViewDataSource<Model, Cell>(tableView: tableView)
+        self.tableViewDataSource = TableViewDataSource(tableView: tableView)
         tableView.dataSource = tableViewDataSource
     }
     

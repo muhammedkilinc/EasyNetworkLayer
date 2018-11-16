@@ -46,32 +46,6 @@ extension UITableView {
 }
 
 
-final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: Cell = tableView.dequeueReusableCell(indexPath: indexPath)
-        cell.config(dataSource[indexPath.row])
-        return cell
-    }
-    
-    
-    var dataSource: [Model] = [] {
-        didSet { tableView.reloadData() }
-    }
-    
-    private unowned var tableView: UITableView
-    
-    init(tableView: UITableView) {
-        self.tableView = tableView
-        
-        tableView.registerReusableCell(Cell.self)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
-    }
-    
-}
 
 
 

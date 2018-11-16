@@ -11,7 +11,7 @@ import UIKit
 class NewsListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var UIController: DynamicTableUIController<Any, NewsTableViewCell>!
+    var UIController: DynamicTableUIController!
     
     var source: Source!
     
@@ -19,7 +19,7 @@ class NewsListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.UIController = DynamicTableUIController<Any, NewsTableViewCell>(view: self.view, tableView: self.tableView)
+        self.UIController = DynamicTableUIController(view: self.view, tableView: self.tableView)
         
         self.tableView.delegate = self
         self.fetchData()
@@ -38,7 +38,7 @@ class NewsListViewController: UIViewController {
                     print(item.articles)
                     
                     DispatchQueue.main.async {
-                        self.UIController.tableViewDataSource.dataSource = item.articles
+//                        self.UIController.tableViewDataSource.dataSource = item.articles
                     }
                 }
                 break
