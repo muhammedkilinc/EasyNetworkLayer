@@ -14,14 +14,14 @@ class ViewController: UIViewController {
 
     var UIController: TableUIController<Any, SourceTableViewCell>!
 
-    var dynamicUIController: DynamicTableUIController!
+//    var dynamicUIController: DynamicTableUIController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-//        self.UIController = TableUIController<Any, SourceTableViewCell>(view: self.view, tableView: self.tableView)
-        self.dynamicUIController = DynamicTableUIController(view: self.view, tableView: self.tableView, cellTypes: [SourceTableViewCell.self])
+        self.UIController = TableUIController<Any, SourceTableViewCell>(view: self.view, tableView: self.tableView)
+//        self.dynamicUIController = DynamicTableUIController(view: self.view, tableView: self.tableView, cellTypes: [SourceTableViewCell.self])
 
         self.tableView.delegate = self
         self.fetchData()
@@ -38,13 +38,13 @@ class ViewController: UIViewController {
                 if let item = result as? SourceResponse {
                     print(item.sources)
                     DispatchQueue.main.async {
-//                        self.UIController.tableViewDataSource.dataSource = item.sources
+                        self.UIController.tableViewDataSource.dataSource = item.sources
                         
-                        var dataArray: [CellTypeData] = []
-                        item.sources.forEach({ (sourceItem) in
-                            dataArray.append(CellTypeData(data: sourceItem, type: SourceTableViewCell.self))
-                        })
-                        self.dynamicUIController.tableViewDataSource.dataSource = dataArray
+//                        var dataArray: [CellTypeData] = []
+//                        item.sources.forEach({ (sourceItem) in
+//                            dataArray.append(CellTypeData(data: sourceItem, type: SourceTableViewCell.self))
+//                        })
+//                        self.dynamicUIController.tableViewDataSource.dataSource = dataArray
                     }
                 }
                 break

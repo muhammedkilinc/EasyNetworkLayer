@@ -54,11 +54,12 @@ final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableVi
     init(tableView: UITableView) {
         self.tableView = tableView
         
-			tableView.registerReusableCell(type: Cell.self)
+		tableView.registerReusableCell(type: Cell.self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-				let cell: Cell = tableView.dequeueReusableCell(type: Cell.self, indexPath: indexPath)
+
+        let cell: Cell = tableView.dequeueReusableCell(type: Cell.self, indexPath: indexPath)
         cell.config(dataSource[indexPath.row])
         return cell
     }

@@ -85,6 +85,7 @@ public extension Endpoint {
 
 public enum NewsFeed {
     case getSources
+    
     case getTopHeadlines(countryId: String?, category: String?, sources: [String]?, query: String?)
 }
 
