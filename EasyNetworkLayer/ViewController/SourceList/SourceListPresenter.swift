@@ -9,27 +9,23 @@
 import Foundation
 
 protocol SourcePresenter {
-//    var numberOfItems: Int { get }
     var router: SourceListViewRouter { get }
     func viewDidLoad()
-//    func configure(cell: BaseCell, forRow row: Int)
     func didSelect(row: Int)
     var dataArray: [Any] { get set }
+    var endPoint: Endpoint { get }
 }
 
 class SourcePresenterImplementation: SourcePresenter {
     fileprivate weak var view: SourceListView?
     internal let router: SourceListViewRouter
-    
+    var endPoint: Endpoint
     var dataArray: [Any] = []
     
-//    var numberOfItems: Int {
-//        return dataArray.count
-//    }
-    
-    init(view: SourceListView, router: SourceListViewRouter) {
+    init(view: SourceListView, router: SourceListViewRouter, endPoint: Endpoint) {
         self.view = view
         self.router = router
+        self.endPoint = endPoint
     }
     
     // MARK: - SourceListPresenter
@@ -40,7 +36,7 @@ class SourcePresenterImplementation: SourcePresenter {
     
     func fetchData() {
         let fetcher = Fetcher()
-        fetcher.fetch(endpointType: NewsFeed.getSources, objectType: SourceResponse.self) { (result) in
+        fetcher.fetch(endpointType: self.endPoint, objectType: SourceResponse.self) { (result) in
             switch result {
             case .error(let error):
                 print(error)
@@ -57,11 +53,6 @@ class SourcePresenterImplementation: SourcePresenter {
             }
         }
     }
-    
-//    func configure(cell: BaseCell, forRow row: Int) {
-//        let item = dataArray[row]
-//        cell.config(item)
-//    }
     
     func didSelect(row: Int) {
         let item = dataArray[row]

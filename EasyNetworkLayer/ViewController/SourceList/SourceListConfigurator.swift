@@ -15,7 +15,7 @@ protocol SourceListConfigurator {
 class SourceListConfiguratorImplementation: SourceListConfigurator {
     func configure(tableViewController: SourceListTableViewController) {
         let router = SourceListViewRouterImplementation(tableViewController: tableViewController)
-        let presenter = SourcePresenterImplementation(view: tableViewController, router: router)
+        let presenter = SourcePresenterImplementation(view: tableViewController, router: router, endPoint: NewsFeed.getSources)
         tableViewController.presenter = presenter
     }
 }
