@@ -9,29 +9,30 @@
 import Foundation
 
 protocol SourcePresenter {
-    var numberOfItems: Int { get }
+//    var numberOfItems: Int { get }
     var router: SourceListViewRouter { get }
     func viewDidLoad()
-    func configure(cell: BaseCell, forRow row: Int)
+//    func configure(cell: BaseCell, forRow row: Int)
     func didSelect(row: Int)
+    var dataArray: [Any] { get set }
 }
 
 class SourcePresenterImplementation: SourcePresenter {
     fileprivate weak var view: SourceListView?
     internal let router: SourceListViewRouter
     
-    var dataArray = [Any]()
+    var dataArray: [Any] = []
     
-    var numberOfItems: Int {
-        return dataArray.count
-    }
+//    var numberOfItems: Int {
+//        return dataArray.count
+//    }
     
     init(view: SourceListView, router: SourceListViewRouter) {
         self.view = view
         self.router = router
     }
     
-    // MARK: - BooksPresenter
+    // MARK: - SourceListPresenter
     
     func viewDidLoad() {
         self.fetchData()
@@ -57,10 +58,10 @@ class SourcePresenterImplementation: SourcePresenter {
         }
     }
     
-    func configure(cell: BaseCell, forRow row: Int) {
-        let book = dataArray[row]
-        cell.config(book)
-    }
+//    func configure(cell: BaseCell, forRow row: Int) {
+//        let item = dataArray[row]
+//        cell.config(item)
+//    }
     
     func didSelect(row: Int) {
         let item = dataArray[row]

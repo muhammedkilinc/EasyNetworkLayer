@@ -31,7 +31,7 @@ class SourceListViewRouterImplementation: SourceListViewRouter {
         self.tableViewController = tableViewController
     }
     
-    // MARK: - BooksViewRouter
+    // MARK: - SourceListViewRouter
     
     func presentDetailsView(for source: Any) {
         if let item = source as? Source {
