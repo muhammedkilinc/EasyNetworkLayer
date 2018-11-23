@@ -8,17 +8,13 @@
 
 import Foundation
 
-protocol SourcePresenter {
-    var router: SourceListViewRouter { get }
-    func viewDidLoad()
-    func didSelect(row: Int)
-    var dataArray: [Any] { get set }
-    var endPoint: Endpoint { get }
+
+protocol SourcePresenter: ListPresenter {
 }
 
 class SourcePresenterImplementation: SourcePresenter {
-    fileprivate weak var view: SourceListView?
-    internal let router: SourceListViewRouter
+    weak var view: SourceListView?
+    var router: ListViewRouter
     var endPoint: Endpoint
     var dataArray: [Any] = []
     
@@ -68,7 +64,7 @@ class SourcePresenterImplementation: SourcePresenter {
     
     fileprivate func handleError(_ error: Error) {
         // Here we could check the error code and display a localized error message
-        view?.displayBooksRetrievalError(title: "Error", message: error.localizedDescription)
+        view?.displayFetchError(title: "Error", message: error.localizedDescription)
     }
     
 }

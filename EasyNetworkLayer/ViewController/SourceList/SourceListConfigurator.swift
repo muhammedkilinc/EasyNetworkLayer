@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SourceListConfigurator {
+protocol SourceListConfigurator: ListConfigurator {
     func configure(tableViewController: SourceListTableViewController)
 }
 
