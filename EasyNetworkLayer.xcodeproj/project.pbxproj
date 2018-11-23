@@ -11,6 +11,10 @@
 		F54F6374219EB98500E53BF7 /* GenericMultiTypeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F6373219EB98500E53BF7 /* GenericMultiTypeDataSource.swift */; };
 		F54F6376219EBD7B00E53BF7 /* GenericDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F6375219EBD7B00E53BF7 /* GenericDataSource.swift */; };
 		F54F6378219EBDBD00E53BF7 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F6377219EBDBD00E53BF7 /* TableViewDataSource.swift */; };
+		F5630B2A21A6D27700C90746 /* SourceListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5630B2921A6D27700C90746 /* SourceListTableViewController.swift */; };
+		F5630B2F21A7DE8500C90746 /* SourceListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5630B2E21A7DE8500C90746 /* SourceListConfigurator.swift */; };
+		F5630B3121A7DEA700C90746 /* SourceListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5630B3021A7DEA600C90746 /* SourceListPresenter.swift */; };
+		F5630B3321A7DED800C90746 /* SourceListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5630B3221A7DED800C90746 /* SourceListRouter.swift */; };
 		F5FF0FF12191C8B80083FE03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */; };
 		F5FF0FF32191C8B80083FE03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF0FF22191C8B80083FE03 /* ViewController.swift */; };
 		F5FF0FF62191C8B80083FE03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5FF0FF42191C8B80083FE03 /* Main.storyboard */; };
@@ -62,6 +66,10 @@
 		F54F6373219EB98500E53BF7 /* GenericMultiTypeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericMultiTypeDataSource.swift; sourceTree = "<group>"; };
 		F54F6375219EBD7B00E53BF7 /* GenericDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDataSource.swift; sourceTree = "<group>"; };
 		F54F6377219EBDBD00E53BF7 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		F5630B2921A6D27700C90746 /* SourceListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceListTableViewController.swift; sourceTree = "<group>"; };
+		F5630B2E21A7DE8500C90746 /* SourceListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceListConfigurator.swift; sourceTree = "<group>"; };
+		F5630B3021A7DEA600C90746 /* SourceListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceListPresenter.swift; sourceTree = "<group>"; };
+		F5630B3221A7DED800C90746 /* SourceListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceListRouter.swift; sourceTree = "<group>"; };
 		F5FF0FED2191C8B80083FE03 /* EasyNetworkLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyNetworkLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5FF0FF22191C8B80083FE03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +138,17 @@
 				F54F6373219EB98500E53BF7 /* GenericMultiTypeDataSource.swift */,
 			);
 			path = unusedCodes;
+			sourceTree = "<group>";
+		};
+		F5630B3421A7E3FD00C90746 /* SourceList */ = {
+			isa = PBXGroup;
+			children = (
+				F5630B2921A6D27700C90746 /* SourceListTableViewController.swift */,
+				F5630B2E21A7DE8500C90746 /* SourceListConfigurator.swift */,
+				F5630B3021A7DEA600C90746 /* SourceListPresenter.swift */,
+				F5630B3221A7DED800C90746 /* SourceListRouter.swift */,
+			);
+			path = SourceList;
 			sourceTree = "<group>";
 		};
 		F5FF0FE42191C8B80083FE03 = {
@@ -239,6 +258,7 @@
 		F5FF104C21945F8B0083FE03 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F5630B3421A7E3FD00C90746 /* SourceList */,
 				F5FF0FF22191C8B80083FE03 /* ViewController.swift */,
 				F5FF1040219451200083FE03 /* NewsListViewController.swift */,
 			);
@@ -381,11 +401,15 @@
 				F5FF1041219451200083FE03 /* NewsListViewController.swift in Sources */,
 				F5FF103F219447C50083FE03 /* Cachable.swift in Sources */,
 				F54F6376219EBD7B00E53BF7 /* GenericDataSource.swift in Sources */,
+				F5630B3321A7DED800C90746 /* SourceListRouter.swift in Sources */,
+				F5630B2F21A7DE8500C90746 /* SourceListConfigurator.swift in Sources */,
 				F5FF1047219455550083FE03 /* UIViewController+Utils.swift in Sources */,
+				F5630B2A21A6D27700C90746 /* SourceListTableViewController.swift in Sources */,
 				F5FF1044219452C80083FE03 /* NewsTableViewCell.swift in Sources */,
 				F5FF104E21946A370083FE03 /* DynamicValue.swift in Sources */,
 				F5FF102B2191E10C0083FE03 /* Article.swift in Sources */,
 				F5FF10302191E3AD0083FE03 /* Endpoint.swift in Sources */,
+				F5630B3121A7DEA700C90746 /* SourceListPresenter.swift in Sources */,
 				F5FF103C21942FE60083FE03 /* SourceTableViewCell.swift in Sources */,
 				F5FF0FF32191C8B80083FE03 /* ViewController.swift in Sources */,
 				F5FF10252191CBDB0083FE03 /* FetchResult.swift in Sources */,
