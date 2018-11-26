@@ -32,7 +32,7 @@ class SourceListViewRouterImplementation: SourceListViewRouter {
     
     func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let newsListTableViewController = segue.destination as? NewsListViewController {
-            newsListTableViewController.source = self.source
+//            newsListTableViewController.source = self.source
             //            bookDetailsTableViewController.configurator = BookDetailsConfiguratorImplementation(book: book)
         }
     }

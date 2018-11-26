@@ -17,11 +17,13 @@ class NewsPresenterImplementation: NewsPresenter {
     internal let router: ListViewRouter
     var endPoint: Endpoint
     var dataArray: [Any] = []
-    
-    init(view: NewsListView, router: NewsListViewRouter, endPoint: Endpoint) {
+    var source: Source
+
+    init(view: NewsListView, router: NewsListViewRouter, endPoint: Endpoint, source: Source) {
         self.view = view
         self.router = router
         self.endPoint = endPoint
+        self.source = source
     }
     
     // MARK: - NewsListPresenter

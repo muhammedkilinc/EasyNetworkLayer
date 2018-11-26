@@ -13,10 +13,8 @@ protocol SourceListView: ListView {
 }
 
 class SourceListTableViewController: UITableViewController, SourceListView {
-
     
-
-    var configurator = SourceListConfiguratorImplementation()
+//    var configurator = SourceListConfiguratorImplementation()
     var presenter: SourcePresenter!
     var tableViewDataSource: TableViewDataSource<Any, SourceTableViewCell>!
 
@@ -29,7 +27,7 @@ class SourceListTableViewController: UITableViewController, SourceListView {
         tableViewDataSource = TableViewDataSource<Any, SourceTableViewCell>(tableView: tableView)
         tableView.dataSource = tableViewDataSource
         
-        configurator.configure(tableViewController: self)
+//        configurator.configure(tableViewController: self)
         presenter.viewDidLoad()
         tableView.delegate = self
     }

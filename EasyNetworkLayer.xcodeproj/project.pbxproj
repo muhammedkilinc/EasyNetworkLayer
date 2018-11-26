@@ -12,13 +12,12 @@
 		F54F6376219EBD7B00E53BF7 /* GenericDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F6375219EBD7B00E53BF7 /* GenericDataSource.swift */; };
 		F54F6378219EBDBD00E53BF7 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F6377219EBDBD00E53BF7 /* TableViewDataSource.swift */; };
 		F5630B2A21A6D27700C90746 /* SourceListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5630B2921A6D27700C90746 /* SourceListTableViewController.swift */; };
-		F5630B2F21A7DE8500C90746 /* SourceListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5630B2E21A7DE8500C90746 /* SourceListConfigurator.swift */; };
 		F5630B3121A7DEA700C90746 /* SourceListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5630B3021A7DEA600C90746 /* SourceListPresenter.swift */; };
 		F5630B3321A7DED800C90746 /* SourceListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5630B3221A7DED800C90746 /* SourceListRouter.swift */; };
 		F5630B3721A81CEC00C90746 /* NewsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5630B3621A81CEB00C90746 /* NewsListPresenter.swift */; };
 		F5630B3A21A8205100C90746 /* BaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5630B3921A8205100C90746 /* BaseProtocol.swift */; };
-		F580ED0721AC2BD3001F353A /* NewsListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED0621AC2BD3001F353A /* NewsListConfigurator.swift */; };
 		F580ED0921AC2BF3001F353A /* NewsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED0821AC2BF3001F353A /* NewsListRouter.swift */; };
+		F580ED0B21AC2E4E001F353A /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED0A21AC2E4E001F353A /* Wireframe.swift */; };
 		F5FF0FF12191C8B80083FE03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */; };
 		F5FF0FF62191C8B80083FE03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5FF0FF42191C8B80083FE03 /* Main.storyboard */; };
 		F5FF0FF82191C8BC0083FE03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5FF0FF72191C8BC0083FE03 /* Assets.xcassets */; };
@@ -69,13 +68,12 @@
 		F54F6375219EBD7B00E53BF7 /* GenericDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDataSource.swift; sourceTree = "<group>"; };
 		F54F6377219EBDBD00E53BF7 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		F5630B2921A6D27700C90746 /* SourceListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceListTableViewController.swift; sourceTree = "<group>"; };
-		F5630B2E21A7DE8500C90746 /* SourceListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceListConfigurator.swift; sourceTree = "<group>"; };
 		F5630B3021A7DEA600C90746 /* SourceListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceListPresenter.swift; sourceTree = "<group>"; };
 		F5630B3221A7DED800C90746 /* SourceListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceListRouter.swift; sourceTree = "<group>"; };
 		F5630B3621A81CEB00C90746 /* NewsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListPresenter.swift; sourceTree = "<group>"; };
 		F5630B3921A8205100C90746 /* BaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProtocol.swift; sourceTree = "<group>"; };
-		F580ED0621AC2BD3001F353A /* NewsListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListConfigurator.swift; sourceTree = "<group>"; };
 		F580ED0821AC2BF3001F353A /* NewsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListRouter.swift; sourceTree = "<group>"; };
+		F580ED0A21AC2E4E001F353A /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		F5FF0FED2191C8B80083FE03 /* EasyNetworkLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyNetworkLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5FF0FF52191C8B80083FE03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				F5630B2921A6D27700C90746 /* SourceListTableViewController.swift */,
-				F5630B2E21A7DE8500C90746 /* SourceListConfigurator.swift */,
 				F5630B3021A7DEA600C90746 /* SourceListPresenter.swift */,
 				F5630B3221A7DED800C90746 /* SourceListRouter.swift */,
 			);
@@ -159,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				F5630B3921A8205100C90746 /* BaseProtocol.swift */,
+				F580ED0A21AC2E4E001F353A /* Wireframe.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -168,7 +166,6 @@
 			children = (
 				F5FF1040219451200083FE03 /* NewsListViewController.swift */,
 				F5630B3621A81CEB00C90746 /* NewsListPresenter.swift */,
-				F580ED0621AC2BD3001F353A /* NewsListConfigurator.swift */,
 				F580ED0821AC2BF3001F353A /* NewsListRouter.swift */,
 			);
 			path = NewsList;
@@ -425,8 +422,6 @@
 				F54F6376219EBD7B00E53BF7 /* GenericDataSource.swift in Sources */,
 				F5630B3A21A8205100C90746 /* BaseProtocol.swift in Sources */,
 				F5630B3321A7DED800C90746 /* SourceListRouter.swift in Sources */,
-				F580ED0721AC2BD3001F353A /* NewsListConfigurator.swift in Sources */,
-				F5630B2F21A7DE8500C90746 /* SourceListConfigurator.swift in Sources */,
 				F5FF1047219455550083FE03 /* UIViewController+Utils.swift in Sources */,
 				F5630B2A21A6D27700C90746 /* SourceListTableViewController.swift in Sources */,
 				F5FF1044219452C80083FE03 /* NewsTableViewCell.swift in Sources */,
@@ -439,6 +434,7 @@
 				F5630B3721A81CEC00C90746 /* NewsListPresenter.swift in Sources */,
 				F5FF10252191CBDB0083FE03 /* FetchResult.swift in Sources */,
 				F54F6378219EBDBD00E53BF7 /* TableViewDataSource.swift in Sources */,
+				F580ED0B21AC2E4E001F353A /* Wireframe.swift in Sources */,
 				F5FF10292191DCFD0083FE03 /* Source.swift in Sources */,
 				F5FF1049219457D00083FE03 /* UIStoryboard+Utils.swift in Sources */,
 				F5FF0FF12191C8B80083FE03 /* AppDelegate.swift in Sources */,

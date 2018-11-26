@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bBq-YF-Uay">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Root View Controller-->
         <scene sceneID="sXf-xh-Rrr">
             <objects>
-                <tableViewController id="X9y-jV-bXT" customClass="SourceListTableViewController" customModule="EasyNetworkLayer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SourceListTableViewControllerIdentifier" id="X9y-jV-bXT" customClass="SourceListTableViewController" customModule="EasyNetworkLayer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hpf-SM-rYB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
         <!--News List View Controller-->
         <scene sceneID="oDH-9T-2Kv">
             <objects>
-                <viewController storyboardIdentifier="NewsListViewController" id="gSn-JB-dUC" customClass="NewsListViewController" customModule="EasyNetworkLayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsListViewControllerIdentifier" id="gSn-JB-dUC" customClass="NewsListViewController" customModule="EasyNetworkLayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gGh-iQ-qhX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

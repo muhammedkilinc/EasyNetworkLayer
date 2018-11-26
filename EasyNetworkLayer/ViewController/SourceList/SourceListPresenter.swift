@@ -17,11 +17,13 @@ class SourcePresenterImplementation: SourcePresenter {
     var router: ListViewRouter
     var endPoint: Endpoint
     var dataArray: [Any] = []
-    
-    init(view: SourceListView, router: SourceListViewRouter, endPoint: Endpoint) {
+    private let wireframe: SourcesWireframe
+
+    init(view: SourceListView, router: SourceListViewRouter, endPoint: Endpoint, wireframe: SourcesWireframe) {
         self.view = view
         self.router = router
         self.endPoint = endPoint
+        self.wireframe = wireframe
     }
     
     // MARK: - SourceListPresenter
@@ -52,7 +54,10 @@ class SourcePresenterImplementation: SourcePresenter {
     
     func didSelect(row: Int) {
         let item = dataArray[row]
-        router.presentDetailsView(for: item)
+//        router.presentDetailsView(for: item)
+        if let data = item as? Source {
+            wireframe.presentSourceDetailViewController(data)
+        }
     }
     
     // MARK: - Private

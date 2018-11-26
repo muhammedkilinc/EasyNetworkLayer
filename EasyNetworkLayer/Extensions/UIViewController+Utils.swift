@@ -30,7 +30,7 @@ extension UIViewController {
 	}
     
 	static var storyboardIdentifier: String {
-		return "\(String(describing: self).lowercased)Identifier"
+		return "\(String(describing: self))Identifier"
 	}
     
     func popSelf(animated: Bool = true) { // why not call it 'popSelf'

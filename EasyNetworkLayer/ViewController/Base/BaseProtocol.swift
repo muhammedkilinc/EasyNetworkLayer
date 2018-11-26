@@ -14,6 +14,11 @@ protocol ListView: class {
     func displayFetchError(title: String, message: String)
 }
 
+protocol LoadingView: class {
+    func startActivityIndicator()
+    func stopActivityIndicator()
+}
+
 protocol ListPresenter {
     var router: ListViewRouter { get }
     var dataArray: [Any] { get set }
@@ -43,3 +48,6 @@ protocol ListViewRouter: ViewRouter {
 protocol ListConfigurator {
 
 }
+
+
+
