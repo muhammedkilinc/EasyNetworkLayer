@@ -42,8 +42,8 @@ class NewsListViewController: UIViewController, NewsListView {
         activityIndicatorView.stopAnimating()
     }
     
-    func refreshSourceListView() {
-        tableViewDataSource.dataArray = presenter.dataArray
+    func refreshSourceListView(dataArray: [Any]) {
+        tableViewDataSource.dataArray = dataArray
     }
     
     func displayFetchError(title: String, message: String) {

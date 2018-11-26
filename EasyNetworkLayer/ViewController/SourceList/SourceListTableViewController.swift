@@ -14,6 +14,8 @@ protocol SourceListView: ListView {
 
 class SourceListTableViewController: UITableViewController, SourceListView {
 
+    
+
     var configurator = SourceListConfiguratorImplementation()
     var presenter: SourcePresenter!
     var tableViewDataSource: TableViewDataSource<Any, SourceTableViewCell>!
@@ -41,8 +43,8 @@ class SourceListTableViewController: UITableViewController, SourceListView {
     }
 
     // MARK: - SourceListView
-    func refreshSourceListView() {
-        tableViewDataSource.dataArray = presenter.dataArray
+    func refreshSourceListView(dataArray: [Any]) {
+        tableViewDataSource.dataArray = dataArray
     }
     
     func displayFetchError(title: String, message: String) {

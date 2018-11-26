@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol ListView: class {
-    func refreshSourceListView()
+    func refreshSourceListView(dataArray: [Any])
     func displayFetchError(title: String, message: String)
 }
 

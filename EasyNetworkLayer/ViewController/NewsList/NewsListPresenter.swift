@@ -103,7 +103,7 @@ class NewsPresenterImplementation: NewsPresenter {
     
     fileprivate func handleDataReceived(_ dataArray: [Any]) {
         self.dataArray = dataArray
-        view?.refreshSourceListView()
+        view?.refreshSourceListView(dataArray: self.dataArray)
     }
     
     fileprivate func handleError(_ error: Error) {

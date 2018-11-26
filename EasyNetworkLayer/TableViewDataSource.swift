@@ -13,7 +13,7 @@ typealias CellTypeData = (data: Any, type: BaseCell.Type)
 
 final class TableViewMultiTypeDataSource: NSObject, UITableViewDataSource {
     
-    var dataSource: [CellTypeData] = [] {
+    var dataArray: [CellTypeData] = [] {
         didSet { tableView.reloadData() }
     }
     
@@ -21,23 +21,23 @@ final class TableViewMultiTypeDataSource: NSObject, UITableViewDataSource {
     
     init(tableView: UITableView, cellTypes: [BaseCell.Type]) {
         cellTypes.forEach { (item) in
-					tableView.registerReusableCell(type: item)
+            tableView.registerReusableCell(type: item)
         }
         
         self.tableView = tableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.dataSource[indexPath.row]
-
-				let cell = tableView.dequeueReusableCell(type: item.type, indexPath: indexPath)
+        let item = self.dataArray[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(type: item.type, indexPath: indexPath)
         cell.config(item.data)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return dataArray.count
     }
     
 }
@@ -54,11 +54,11 @@ final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableVi
     init(tableView: UITableView) {
         self.tableView = tableView
         
-		tableView.registerReusableCell(type: Cell.self)
+        tableView.registerReusableCell(type: Cell.self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell: Cell = tableView.dequeueReusableCell(type: Cell.self, indexPath: indexPath)
         cell.config(dataArray[indexPath.row])
         return cell
@@ -69,6 +69,7 @@ final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableVi
     }
     
 }
+
 
 
 

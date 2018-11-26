@@ -42,7 +42,6 @@
 		F5FF1047219455550083FE03 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF1046219455550083FE03 /* UIViewController+Utils.swift */; };
 		F5FF1049219457D00083FE03 /* UIStoryboard+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF1048219457D00083FE03 /* UIStoryboard+Utils.swift */; };
 		F5FF104E21946A370083FE03 /* DynamicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF104D21946A370083FE03 /* DynamicValue.swift */; };
-		F5FF10522195B6D90083FE03 /* DynamicTableUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF10512195B6D90083FE03 /* DynamicTableUIController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,7 +103,6 @@
 		F5FF1046219455550083FE03 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
 		F5FF1048219457D00083FE03 /* UIStoryboard+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Utils.swift"; sourceTree = "<group>"; };
 		F5FF104D21946A370083FE03 /* DynamicValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicValue.swift; sourceTree = "<group>"; };
-		F5FF10512195B6D90083FE03 /* DynamicTableUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTableUIController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +197,6 @@
 				F5FF104A21945F6A0083FE03 /* Extensions */,
 				F5FF104C21945F8B0083FE03 /* ViewController */,
 				F5FF104B21945F7D0083FE03 /* Cell */,
-				F5FF10512195B6D90083FE03 /* DynamicTableUIController.swift */,
 				F54F6377219EBDBD00E53BF7 /* TableViewDataSource.swift */,
 				F5FF0FF42191C8B80083FE03 /* Main.storyboard */,
 				F5FF0FF72191C8BC0083FE03 /* Assets.xcassets */,
@@ -445,7 +442,6 @@
 				F54F6374219EB98500E53BF7 /* GenericMultiTypeDataSource.swift in Sources */,
 				3DEB28E7219DBC670086A017 /* Cells.swift in Sources */,
 				F5FF102E2191E3870083FE03 /* FetchMethod.swift in Sources */,
-				F5FF10522195B6D90083FE03 /* DynamicTableUIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

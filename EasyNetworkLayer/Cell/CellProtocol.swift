@@ -15,7 +15,7 @@ public protocol CellProtocol: class {
 
 
 open class BaseCell: UITableViewCell, CellProtocol {
-    open func config(_ data: Any?) {
+    public func config(_ data: Any?) {
         
     }
 }
@@ -33,6 +33,7 @@ extension UITableView {
         return dequeueReusableCell(withIdentifier: "\(String(describing: type))Identifier", for: indexPath) as! T
     }
 }
+
 
 
 
