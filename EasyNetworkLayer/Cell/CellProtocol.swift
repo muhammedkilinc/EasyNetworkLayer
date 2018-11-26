@@ -10,67 +10,30 @@ import Foundation
 import UIKit
 
 public protocol CellProtocol: class {
-    static var identifier: String { get }
-    static var nibName: String { get }
-
     func config(_ data: Any?)
 }
 
-extension CellProtocol {
-    static var identifier: String {
-        return String(describing: self) + "identifier"
-    }
-    
-    static var nibName: String {
-        return String(describing: self)
-    }
-}
 
-class BaseCell: UITableViewCell, CellProtocol {
-    func config(_ data: Any?) {
+open class BaseCell: UITableViewCell, CellProtocol {
+    open func config(_ data: Any?) {
         
     }
 }
 
 extension UITableView {
     
-    func registerReusableCell<T: BaseCell>(_: T.Type) {
-//        register(T.self, forCellReuseIdentifier: T.identifier())
-        register(UINib(nibName: T.nibName, bundle: nil), forCellReuseIdentifier: T.identifier)
+    func registerReusableCell<T: BaseCell>(type: T.Type) {
+        //        register(T.self, forCellReuseIdentifier: T.identifier)
+        print("nib: \(String(describing: type)) identifier: \(String(describing: type))Identifier")
+        register(UINib(nibName: String(describing: type), bundle: nil), forCellReuseIdentifier: "\(String(describing: type))Identifier")
     }
     
-    func dequeueReusableCell<T: BaseCell>(indexPath: IndexPath) -> T {
-        return dequeueReusableCell(withIdentifier: T.identifier, for: indexPath as IndexPath) as! T
+    func dequeueReusableCell<T: BaseCell>(type: T.Type, indexPath: IndexPath) -> T {
+        print("dequeu identifier: \(String(describing: T.self))Identifier")
+        return dequeueReusableCell(withIdentifier: "\(String(describing: type))Identifier", for: indexPath) as! T
     }
 }
 
-
-final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: Cell = tableView.dequeueReusableCell(indexPath: indexPath)
-        cell.config(dataSource[indexPath.row])
-        return cell
-    }
-    
-    
-    var dataSource: [Model] = [] {
-        didSet { tableView.reloadData() }
-    }
-    
-    private unowned var tableView: UITableView
-    
-    init(tableView: UITableView) {
-        self.tableView = tableView
-        
-        tableView.registerReusableCell(Cell.self)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
-    }
-    
-}
 
 
 
