@@ -45,7 +45,7 @@ final class TableViewMultiTypeDataSource: NSObject, UITableViewDataSource {
 
 final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableViewDataSource {
     
-    var dataSource: [Model] = [] {
+    var dataArray: [Model] = [] {
         didSet { tableView.reloadData() }
     }
     
@@ -60,12 +60,12 @@ final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell: Cell = tableView.dequeueReusableCell(type: Cell.self, indexPath: indexPath)
-        cell.config(dataSource[indexPath.row])
+        cell.config(dataArray[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return dataArray.count
     }
     
 }

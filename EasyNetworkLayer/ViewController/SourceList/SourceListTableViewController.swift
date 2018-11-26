@@ -16,16 +16,20 @@ class SourceListTableViewController: UITableViewController, SourceListView {
 
     var configurator = SourceListConfiguratorImplementation()
     var presenter: SourcePresenter!
-    var UIController: TableUIController<Any, SourceTableViewCell>!
+    var tableViewDataSource: TableViewDataSource<Any, SourceTableViewCell>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIController = TableUIController<Any, SourceTableViewCell>(view: self.view, tableView: self.tableView)
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        tableViewDataSource = TableViewDataSource<Any, SourceTableViewCell>(tableView: tableView)
+        tableView.dataSource = tableViewDataSource
         
         configurator.configure(tableViewController: self)
         presenter.viewDidLoad()
-        self.tableView.delegate = self
+        tableView.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,7 +42,7 @@ class SourceListTableViewController: UITableViewController, SourceListView {
 
     // MARK: - SourceListView
     func refreshSourceListView() {
-        self.UIController.tableViewDataSource.dataSource = presenter.dataArray
+        tableViewDataSource.dataArray = presenter.dataArray
     }
     
     func displayFetchError(title: String, message: String) {

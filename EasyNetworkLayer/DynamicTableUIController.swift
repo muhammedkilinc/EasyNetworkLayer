@@ -25,22 +25,3 @@ class DynamicTableUIController {
         tableView.dataSource = tableViewDataSource
     }
 }
-
-
-class TableUIController<Model: Any, Cell: BaseCell> {
-    
-    unowned var view: UIView
-    var tableViewDataSource: TableViewDataSource<Model, Cell>!
-    
-    init(view: UIView, tableView: UITableView) {
-        
-        self.view = view
-        
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableView.automaticDimension
-        
-        self.tableViewDataSource = TableViewDataSource<Model, Cell>(tableView: tableView)
-        tableView.dataSource = tableViewDataSource
-    }
-    
-}
