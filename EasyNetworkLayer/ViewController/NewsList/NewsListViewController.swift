@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol NewsListView: ListView {
+    func startActivityIndicator()
+    func stopActivityIndicator()
+}
+
 class NewsListViewController: UIViewController, NewsListView {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!

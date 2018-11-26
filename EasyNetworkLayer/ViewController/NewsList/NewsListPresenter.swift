@@ -9,48 +9,8 @@
 import Foundation
 import UIKit
 
-protocol NewsListView: ListView {
-    func startActivityIndicator()
-    func stopActivityIndicator()
-}
-
 protocol NewsPresenter: ListPresenter {
 }
-
-protocol NewsListViewRouter: ListViewRouter {
-}
-
-protocol NewsListConfigurator: ListConfigurator {
-    func configure(tableViewController: NewsListViewController, source: Source)
-}
-
-class NewsListConfiguratorImplementation: NewsListConfigurator {
-    func configure(tableViewController: NewsListViewController, source: Source) {
-        let endPoint = NewsFeed.getTopHeadlines(countryId: nil, category: nil, sources: [source.id], query: nil)
-        let router = NewsListViewRouterImplementation(tableViewController: tableViewController)
-        let presenter = NewsPresenterImplementation(view: tableViewController, router: router, endPoint: endPoint)
-        tableViewController.presenter = presenter
-    }
-}
-
-class NewsListViewRouterImplementation: NewsListViewRouter {
-    fileprivate weak var viewController: UIViewController?
-    
-    init(tableViewController: UIViewController) {
-        self.viewController = tableViewController
-    }
-    
-    // MARK: - NewsListViewRouter
-    
-    func presentDetailsView(for source: Any) {
-        //TODO
-    }
-    
-    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //TODO
-    }
-}
-
 
 class NewsPresenterImplementation: NewsPresenter {
     fileprivate weak var view: NewsListView?
