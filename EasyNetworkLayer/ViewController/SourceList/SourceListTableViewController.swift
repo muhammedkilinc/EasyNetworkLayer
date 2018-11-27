@@ -14,7 +14,6 @@ protocol SourceListView: ListView {
 
 class SourceListTableViewController: UITableViewController, SourceListView {
     
-//    var configurator = SourceListConfiguratorImplementation()
     var presenter: SourcePresenter!
     var tableViewDataSource: TableViewDataSource<Any, SourceTableViewCell>!
 
@@ -27,13 +26,8 @@ class SourceListTableViewController: UITableViewController, SourceListView {
         tableViewDataSource = TableViewDataSource<Any, SourceTableViewCell>(tableView: tableView)
         tableView.dataSource = tableViewDataSource
         
-//        configurator.configure(tableViewController: self)
         presenter.viewDidLoad()
         tableView.delegate = self
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        presenter.router.prepare(for: segue, sender: sender)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

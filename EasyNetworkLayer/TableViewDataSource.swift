@@ -66,10 +66,5 @@ final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
-    }
-    
+    }    
 }
-
-
-
-

@@ -15,7 +15,6 @@ class NewsListViewController: UIViewController, NewsListView {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
 
-//    var configurator = NewsListConfiguratorImplementation()
     var presenter: NewsPresenter!
     var tableViewDataSource: TableViewDataSource<Any, NewsTableViewCell>!
 
@@ -31,7 +30,6 @@ class NewsListViewController: UIViewController, NewsListView {
         tableViewDataSource = TableViewDataSource<Any, NewsTableViewCell>(tableView: tableView)
         tableView.dataSource = tableViewDataSource
         
-//        configurator.configure(tableViewController: self, source: source)
         presenter.viewDidLoad()
         tableView.delegate = self
     }

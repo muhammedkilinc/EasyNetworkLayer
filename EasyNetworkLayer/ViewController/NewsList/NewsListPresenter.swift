@@ -14,14 +14,14 @@ protocol NewsPresenter: ListPresenter {
 
 class NewsPresenterImplementation: NewsPresenter {
     fileprivate weak var view: NewsListView?
-    internal let router: ListViewRouter
+//    internal let router: ListViewRouter
     var endPoint: Endpoint
     var dataArray: [Any] = []
     var source: Source
 
-    init(view: NewsListView, router: NewsListViewRouter, endPoint: Endpoint, source: Source) {
+    init(view: NewsListView, endPoint: Endpoint, source: Source) {
         self.view = view
-        self.router = router
+//        self.router = router
         self.endPoint = endPoint
         self.source = source
     }
@@ -58,7 +58,7 @@ class NewsPresenterImplementation: NewsPresenter {
     
     func didSelect(row: Int) {
         let item = dataArray[row]
-        router.presentDetailsView(for: item)
+//        router.presentDetailsView(for: item)
     }
     
     // MARK: - Private

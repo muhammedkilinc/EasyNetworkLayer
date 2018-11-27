@@ -14,14 +14,12 @@ protocol SourcePresenter: ListPresenter {
 
 class SourcePresenterImplementation: SourcePresenter {
     weak var view: SourceListView?
-    var router: ListViewRouter
     var endPoint: Endpoint
     var dataArray: [Any] = []
     private let wireframe: SourcesWireframe
 
-    init(view: SourceListView, router: SourceListViewRouter, endPoint: Endpoint, wireframe: SourcesWireframe) {
+    init(view: SourceListView, endPoint: Endpoint, wireframe: SourcesWireframe) {
         self.view = view
-        self.router = router
         self.endPoint = endPoint
         self.wireframe = wireframe
     }
@@ -54,7 +52,6 @@ class SourcePresenterImplementation: SourcePresenter {
     
     func didSelect(row: Int) {
         let item = dataArray[row]
-//        router.presentDetailsView(for: item)
         if let data = item as? Source {
             wireframe.presentSourceDetailViewController(data)
         }

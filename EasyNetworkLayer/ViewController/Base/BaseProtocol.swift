@@ -20,7 +20,7 @@ protocol LoadingView: class {
 }
 
 protocol ListPresenter {
-    var router: ListViewRouter { get }
+//    var router: ListViewRouter { get }
     var dataArray: [Any] { get set }
     var endPoint: Endpoint { get }
     
@@ -31,23 +31,3 @@ protocol ListPresenter {
 extension ListPresenter {
     
 }
-
-protocol ViewRouter {
-    func prepare(for segue: UIStoryboardSegue, sender: Any?)
-}
-
-extension ViewRouter {
-    func prepare(for segue: UIStoryboardSegue, sender: Any?) { }
-}
-
-
-protocol ListViewRouter: ViewRouter {
-    func presentDetailsView(for source: Any)
-}
-
-protocol ListConfigurator {
-
-}
-
-
-
