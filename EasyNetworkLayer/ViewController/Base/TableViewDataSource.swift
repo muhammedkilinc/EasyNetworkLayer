@@ -43,19 +43,13 @@ final class TableViewMultiTypeDataSource: NSObject, UITableViewDataSource {
 }
 
 
-final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableViewDataSource {
+final class TableViewDataSource<Model, Cell: BaseCell>: NSObject, UITableViewDataSource, BaseTableDataSource where Model == Cell.Model {
     
-    var dataArray: [Model] = [] {
-        didSet { tableView.reloadData() }
-    }
+    var dataArray: [Model] = []
+    var delegate: CellDelegate?
     
-    private unowned var tableView: UITableView
-    var delegate: Any?
-    
-    init(tableView: UITableView, delegate: Any? = nil) {
-        self.tableView = tableView
+    init(delegate: CellDelegate? = nil) {
         self.delegate = delegate
-        tableView.registerReusableCell(type: Cell.self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

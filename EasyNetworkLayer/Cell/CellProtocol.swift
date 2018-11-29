@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 public protocol CellProtocol: class {
-    func config(_ data: Any?)
+    associatedtype Model
+    func config(_ data: Model?)
 }
 
 public protocol CellDelegateProtocol: class {

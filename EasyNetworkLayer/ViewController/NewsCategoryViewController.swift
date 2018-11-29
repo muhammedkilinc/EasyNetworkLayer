@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class NewsCategoryTableViewController: UITableViewController, NewsCategoryView {
+class NewsCategoryTableViewController: UITableViewController, NewsCategoryView, BaseTableViewController, CellDelegate {
     
     var presenter: CategoryPresenter!
-    var tableViewDataSource: TableViewDataSource<Any, CategoryTableViewCell>!
-    
+    var dataSource: TableViewDataSource<Any, CategoryTableViewCell>!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,8 +21,9 @@ class NewsCategoryTableViewController: UITableViewController, NewsCategoryView {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        tableViewDataSource = TableViewDataSource<Any, CategoryTableViewCell>(tableView: tableView, delegate: self)
-        tableView.dataSource = tableViewDataSource
+        tableView.registerReusableCell(type: CategoryTableViewCell.self)
+        dataSource = TableViewDataSource<Any, CategoryTableViewCell>(delegate: self)
+        tableView.dataSource = dataSource
         
         presenter.viewDidLoad()
         tableView.delegate = self
@@ -32,9 +33,11 @@ class NewsCategoryTableViewController: UITableViewController, NewsCategoryView {
         presenter.didSelect(row: indexPath.row)
     }
     
-    // MARK: - SourceListView
+    // MARK: - CategoryListView
     func refreshList(dataArray: [Any]) {
-        tableViewDataSource.dataArray = dataArray
+        self.show(items: dataArray)
+//        dataSource.dataArray = dataArray
+//        tableView.reloadData()
     }
     
     func displayFetchError(title: String, message: String) {

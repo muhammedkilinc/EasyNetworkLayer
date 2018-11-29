@@ -20,9 +20,7 @@ protocol LoadingView: class {
 }
 
 protocol ListPresenter {
-//    var router: ListViewRouter { get }
     var dataArray: [Any] { get set }
-    
     func viewDidLoad()
     func didSelect(row: Int)
 }
@@ -31,7 +29,7 @@ extension ListPresenter {
     
 }
 
-
 protocol FetchListPresenter: ListPresenter {
     var endPoint: Endpoint { get }
 }
+

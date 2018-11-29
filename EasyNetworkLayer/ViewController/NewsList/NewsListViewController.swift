@@ -27,7 +27,8 @@ class NewsListViewController: UIViewController, NewsListView {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        tableViewDataSource = TableViewDataSource<Any, NewsTableViewCell>(tableView: tableView)
+        tableView.registerReusableCell(type: NewsTableViewCell.self)
+        tableViewDataSource = TableViewDataSource<Any, NewsTableViewCell>()
         tableView.dataSource = tableViewDataSource
         
         presenter.viewDidLoad()
@@ -44,6 +45,7 @@ class NewsListViewController: UIViewController, NewsListView {
     
     func refreshList(dataArray: [Any]) {
         tableViewDataSource.dataArray = dataArray
+        tableView.reloadData()
     }
     
     func displayFetchError(title: String, message: String) {

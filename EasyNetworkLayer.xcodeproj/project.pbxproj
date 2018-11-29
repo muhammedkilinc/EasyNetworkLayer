@@ -26,6 +26,7 @@
 		F580ED7021AFD925001F353A /* NewCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED6F21AFD925001F353A /* NewCategory.swift */; };
 		F580ED7521AFDA50001F353A /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED7321AFDA50001F353A /* CategoryTableViewCell.swift */; };
 		F580ED7621AFDA50001F353A /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F580ED7421AFDA50001F353A /* CategoryTableViewCell.xib */; };
+		F580ED7821B00531001F353A /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED7721B00531001F353A /* TableDataSource.swift */; };
 		F5FF0FF12191C8B80083FE03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */; };
 		F5FF0FF62191C8B80083FE03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5FF0FF42191C8B80083FE03 /* Main.storyboard */; };
 		F5FF0FF82191C8BC0083FE03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5FF0FF72191C8BC0083FE03 /* Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		F580ED6F21AFD925001F353A /* NewCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategory.swift; sourceTree = "<group>"; };
 		F580ED7321AFDA50001F353A /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		F580ED7421AFDA50001F353A /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		F580ED7721B00531001F353A /* TableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
 		F5FF0FED2191C8B80083FE03 /* EasyNetworkLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyNetworkLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5FF0FF52191C8B80083FE03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +178,8 @@
 				F580ED1C21AD2824001F353A /* RootWireframe.swift */,
 				F580ED2021AD2862001F353A /* NavigationContainer.swift */,
 				F580ED2221AD289B001F353A /* ViewFactory.swift */,
+				F580ED7721B00531001F353A /* TableDataSource.swift */,
+				F54F6377219EBDBD00E53BF7 /* TableViewDataSource.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -218,7 +222,6 @@
 				F5FF104A21945F6A0083FE03 /* Extensions */,
 				F5FF104C21945F8B0083FE03 /* ViewController */,
 				F5FF104B21945F7D0083FE03 /* Cell */,
-				F54F6377219EBDBD00E53BF7 /* TableViewDataSource.swift */,
 				F5FF0FF42191C8B80083FE03 /* Main.storyboard */,
 				F5FF0FF72191C8BC0083FE03 /* Assets.xcassets */,
 				F5FF0FF92191C8BC0083FE03 /* LaunchScreen.storyboard */,
@@ -461,6 +464,7 @@
 				F580ED1F21AD2840001F353A /* SourcesWireframe.swift in Sources */,
 				F54F6378219EBDBD00E53BF7 /* TableViewDataSource.swift in Sources */,
 				F580ED0B21AC2E4E001F353A /* Wireframe.swift in Sources */,
+				F580ED7821B00531001F353A /* TableDataSource.swift in Sources */,
 				F5FF10292191DCFD0083FE03 /* Source.swift in Sources */,
 				F580ED6821AFD68F001F353A /* NewsCategoryViewController.swift in Sources */,
 				F5FF1049219457D00083FE03 /* UIStoryboard+Utils.swift in Sources */,

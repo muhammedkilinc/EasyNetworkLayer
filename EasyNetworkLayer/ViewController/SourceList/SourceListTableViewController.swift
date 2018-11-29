@@ -12,10 +12,10 @@ protocol SourceListView: ListView {
 
 }
 
-class SourceListTableViewController: UITableViewController, SourceListView {
-    
+class SourceListTableViewController: UITableViewController, SourceListView, BaseTableViewController {
+
     var presenter: SourcePresenter!
-    var tableViewDataSource: TableViewDataSource<Any, SourceTableViewCell>!
+    var dataSource: TableViewDataSource<Any, SourceTableViewCell>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +24,9 @@ class SourceListTableViewController: UITableViewController, SourceListView {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        tableViewDataSource = TableViewDataSource<Any, SourceTableViewCell>(tableView: tableView)
-        tableView.dataSource = tableViewDataSource
+        tableView.registerReusableCell(type: SourceTableViewCell.self)
+        dataSource = TableViewDataSource<Any, SourceTableViewCell>()
+        tableView.dataSource = dataSource
         
         presenter.viewDidLoad()
         tableView.delegate = self
@@ -37,18 +38,17 @@ class SourceListTableViewController: UITableViewController, SourceListView {
         presenter.openCategoryScreen()
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelect(row: indexPath.row)
-    }
-
     // MARK: - SourceListView
     func refreshList(dataArray: [Any]) {
-        tableViewDataSource.dataArray = dataArray
+        self.show(items: dataArray)
     }
     
     func displayFetchError(title: String, message: String) {
         print("\(title) -- \(message)")
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelect(row: indexPath.row)
+    }
+    
 }
-
