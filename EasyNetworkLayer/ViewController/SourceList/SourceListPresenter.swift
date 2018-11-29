@@ -9,7 +9,8 @@
 import Foundation
 
 
-protocol SourcePresenter: ListPresenter {
+protocol SourcePresenter: FetchListPresenter {
+    func openCategoryScreen()
 }
 
 class SourcePresenterImplementation: SourcePresenter {
@@ -57,11 +58,14 @@ class SourcePresenterImplementation: SourcePresenter {
         }
     }
     
+    func openCategoryScreen() {
+        wireframe.presentCategoryViewController()
+    }
     // MARK: - Private
     
     fileprivate func handleDataReceived(_ dataArray: [Any]) {
         self.dataArray = dataArray
-        view?.refreshSourceListView(dataArray: self.dataArray)
+        view?.refreshList(dataArray: self.dataArray)
     }
     
     fileprivate func handleError(_ error: Error) {

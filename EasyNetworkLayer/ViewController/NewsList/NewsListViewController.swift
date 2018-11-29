@@ -42,7 +42,7 @@ class NewsListViewController: UIViewController, NewsListView {
         activityIndicatorView.stopAnimating()
     }
     
-    func refreshSourceListView(dataArray: [Any]) {
+    func refreshList(dataArray: [Any]) {
         tableViewDataSource.dataArray = dataArray
     }
     

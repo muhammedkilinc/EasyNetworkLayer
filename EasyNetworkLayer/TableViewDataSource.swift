@@ -50,17 +50,21 @@ final class TableViewDataSource<Model: Any, Cell: BaseCell>: NSObject, UITableVi
     }
     
     private unowned var tableView: UITableView
+    var delegate: Any?
     
-    init(tableView: UITableView) {
+    init(tableView: UITableView, delegate: Any? = nil) {
         self.tableView = tableView
-        
+        self.delegate = delegate
         tableView.registerReusableCell(type: Cell.self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell: Cell = tableView.dequeueReusableCell(type: Cell.self, indexPath: indexPath)
         cell.config(dataArray[indexPath.row])
+        
+        if let cell = cell as? CellDelegateProtocol {
+            cell.delegate = delegate
+        }
         return cell
     }
     

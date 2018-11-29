@@ -13,6 +13,9 @@ public protocol CellProtocol: class {
     func config(_ data: Any?)
 }
 
+public protocol CellDelegateProtocol: class {
+    var delegate: Any? { get set }
+}
 
 open class BaseCell: UITableViewCell, CellProtocol {
     public func config(_ data: Any?) {

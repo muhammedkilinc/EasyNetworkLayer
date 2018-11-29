@@ -1,46 +1,37 @@
 //
-//  SourceListTableViewController.swift
+//  NewsCategoryViewController.swift
 //  EasyNetworkLayer
 //
-//  Created by ınomera on 22.11.2018.
+//  Created by ınomera on 29.11.2018.
 //  Copyright © 2018 muhammedkilinc. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-protocol SourceListView: ListView {
-
-}
-
-class SourceListTableViewController: UITableViewController, SourceListView {
+class NewsCategoryTableViewController: UITableViewController, NewsCategoryView {
     
-    var presenter: SourcePresenter!
-    var tableViewDataSource: TableViewDataSource<Any, SourceTableViewCell>!
-
+    var presenter: CategoryPresenter!
+    var tableViewDataSource: TableViewDataSource<Any, CategoryTableViewCell>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "News API"
+        self.title = "Categories"
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        tableViewDataSource = TableViewDataSource<Any, SourceTableViewCell>(tableView: tableView)
+        tableViewDataSource = TableViewDataSource<Any, CategoryTableViewCell>(tableView: tableView, delegate: self)
         tableView.dataSource = tableViewDataSource
         
         presenter.viewDidLoad()
         tableView.delegate = self
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Categories", style: .done, target: self, action: #selector(self.touchedCategoryButton(_:)))
-    }
-    
-    @objc func touchedCategoryButton(_ sender: Any) {
-        presenter.openCategoryScreen()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelect(row: indexPath.row)
     }
-
+    
     // MARK: - SourceListView
     func refreshList(dataArray: [Any]) {
         tableViewDataSource.dataArray = dataArray
@@ -52,3 +43,9 @@ class SourceListTableViewController: UITableViewController, SourceListView {
     
 }
 
+
+extension NewsCategoryTableViewController: CategoryTableCellDelegate {
+    func valueChangedCategoryStatus(isActive: Bool) {
+        print("isActive: \(isActive)")
+    }
+}

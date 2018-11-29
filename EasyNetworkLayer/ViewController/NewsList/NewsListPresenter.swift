@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol NewsPresenter: ListPresenter {
+protocol NewsPresenter: FetchListPresenter {
 }
 
 class NewsPresenterImplementation: NewsPresenter {
@@ -65,7 +65,7 @@ class NewsPresenterImplementation: NewsPresenter {
     
     fileprivate func handleDataReceived(_ dataArray: [Any]) {
         self.dataArray = dataArray
-        view?.refreshSourceListView(dataArray: self.dataArray)
+        view?.refreshList(dataArray: self.dataArray)
     }
     
     fileprivate func handleError(_ error: Error) {

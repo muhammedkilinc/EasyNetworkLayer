@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+class CategoryNavigationController: UINavigationController {
+    
+}
+
+class SourceNavigationController: UINavigationController {
+    
+}
+
 class ViewFactory {
     
     static let sharedInstance = ViewFactory()
@@ -16,14 +24,18 @@ class ViewFactory {
     
     private init() { }
     
-    func provideSeriesNavigator() -> UINavigationController? {
+    func provideSourcesNavigator() -> SourceNavigationController? {
         return navigatorContainer.resolve()
     }
     
     func provideRootNavController() -> UINavigationController {
-        let navController: UINavigationController = UINavigationController(rootViewController: provideSourceViewController())
+        let navController: SourceNavigationController = SourceNavigationController(rootViewController: provideSourceViewController())
         navigatorContainer.register(navigationController: navController)
         return navController
+    }
+    
+    func provideCategoryNavigator() -> CategoryNavigationController? {
+        return navigatorContainer.resolve()
     }
     
     func provideSourceViewController() -> SourceListTableViewController {
@@ -33,11 +45,17 @@ class ViewFactory {
         return viewController
     }
     
-    
     func provideSourceDetailViewController(_ source: Source) -> NewsListViewController {
         let viewController: NewsListViewController = NewsListViewController.instantiateFromStoryboard()        
         let endPoint = NewsFeed.getTopHeadlines(countryId: nil, category: nil, sources: [source.id], query: nil)
         let presenter = NewsPresenterImplementation(view: viewController, endPoint: endPoint, source: source)
+        viewController.presenter = presenter
+        return viewController
+    }
+    
+    func provideCategoryViewController() -> NewsCategoryTableViewController {
+        let viewController: NewsCategoryTableViewController = NewsCategoryTableViewController.instantiateFromStoryboard()
+        let presenter = CategoryPresenterImplementation(view: viewController, wireframe: NewsCategoryWireframe())
         viewController.presenter = presenter
         return viewController
     }

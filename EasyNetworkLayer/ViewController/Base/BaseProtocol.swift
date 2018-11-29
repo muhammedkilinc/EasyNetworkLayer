@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol ListView: class {
-    func refreshSourceListView(dataArray: [Any])
+    func refreshList(dataArray: [Any])
     func displayFetchError(title: String, message: String)
 }
 
@@ -22,7 +22,6 @@ protocol LoadingView: class {
 protocol ListPresenter {
 //    var router: ListViewRouter { get }
     var dataArray: [Any] { get set }
-    var endPoint: Endpoint { get }
     
     func viewDidLoad()
     func didSelect(row: Int)
@@ -30,4 +29,9 @@ protocol ListPresenter {
 
 extension ListPresenter {
     
+}
+
+
+protocol FetchListPresenter: ListPresenter {
+    var endPoint: Endpoint { get }
 }
