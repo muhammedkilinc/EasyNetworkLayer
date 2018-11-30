@@ -9,9 +9,6 @@
 import Foundation
 import UIKit
 
-public protocol CellDelegate {
-
-}
 
 public protocol BaseTableDataSource {
     associatedtype Model

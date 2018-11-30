@@ -16,6 +16,7 @@ final class TableDataSource<Model, Cell: CellProtocol>: NSObject, UITableViewDat
     
     init(delegate: CellDelegate? = nil) {
         self.delegate = delegate
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,3 +33,4 @@ final class TableDataSource<Model, Cell: CellProtocol>: NSObject, UITableViewDat
         return dataArray.count
     }
 }
+

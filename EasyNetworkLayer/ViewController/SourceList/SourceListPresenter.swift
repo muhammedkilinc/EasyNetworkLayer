@@ -59,7 +59,8 @@ class SourcePresenterImplementation: SourcePresenter {
     }
     
     func openCategoryScreen() {
-        wireframe.presentCategoryViewController()
+//        wireframe.presentCategoryViewController()
+        wireframe.presentCustomizeViewController()
     }
     // MARK: - Private
     

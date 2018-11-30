@@ -28,7 +28,7 @@ class NewsCategoryTableViewController: UITableViewController, NewsCategoryView, 
         presenter.viewDidLoad()
         tableView.delegate = self
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(self.closeScreen))
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(self.closeScreen))
     }
     
     @objc func closeScreen() {
@@ -49,9 +49,7 @@ class NewsCategoryTableViewController: UITableViewController, NewsCategoryView, 
     func displayFetchError(title: String, message: String) {
         print("\(title) -- \(message)")
     }
-    
 }
-
 
 extension NewsCategoryTableViewController: CategoryTableCellDelegate {
     func valueChangedCategoryStatus(isActive: Bool) {

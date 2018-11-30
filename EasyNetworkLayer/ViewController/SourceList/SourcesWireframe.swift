@@ -21,4 +21,10 @@ class SourcesWireframe: Wireframe {
         viewFactory.navigatorContainer.register(navigationController: navigationController)
         viewFactory.provideSourcesNavigator()?.present(navigationController, animated: true, completion: nil)
     }
+    
+    func presentCustomizeViewController() {
+        let viewController = viewFactory.provideCustomizeViewController()
+        viewFactory.provideSourcesNavigator()?.pushViewController(viewController, animated: true)
+    }
+    
 }

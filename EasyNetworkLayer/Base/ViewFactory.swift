@@ -59,4 +59,11 @@ class ViewFactory {
         viewController.presenter = presenter
         return viewController
     }
+    
+    func provideCustomizeViewController() -> CustomizeTableViewController {
+        let viewController: CustomizeTableViewController = CustomizeTableViewController.instantiateFromStoryboard()
+        let presenter = CustomizePresenterImplementation(view: viewController, wireframe: CustomizeWireframe())
+        viewController.presenter = presenter
+        return viewController
+    }
 }
