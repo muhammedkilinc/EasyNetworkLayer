@@ -12,7 +12,7 @@ import UIKit
 class NewsCategoryTableViewController: UITableViewController, NewsCategoryView, BaseTableViewController, CellDelegate {
     
     var presenter: CategoryPresenter!
-    var dataSource: TableViewDataSource<Any, CategoryTableViewCell>!
+    var dataSource: TableDataSource<NewsCategory, CategoryTableViewCell>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +22,17 @@ class NewsCategoryTableViewController: UITableViewController, NewsCategoryView, 
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.registerReusableCell(type: CategoryTableViewCell.self)
-        dataSource = TableViewDataSource<Any, CategoryTableViewCell>(delegate: self)
+        dataSource = TableDataSource<NewsCategory, CategoryTableViewCell>(delegate: self)
         tableView.dataSource = dataSource
         
         presenter.viewDidLoad()
         tableView.delegate = self
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(self.closeScreen))
+    }
+    
+    @objc func closeScreen() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -35,9 +41,9 @@ class NewsCategoryTableViewController: UITableViewController, NewsCategoryView, 
     
     // MARK: - CategoryListView
     func refreshList(dataArray: [Any]) {
-        self.show(items: dataArray)
-//        dataSource.dataArray = dataArray
-//        tableView.reloadData()
+        if let items = dataArray as? [NewsCategory] {
+            self.show(items: items)
+        }
     }
     
     func displayFetchError(title: String, message: String) {

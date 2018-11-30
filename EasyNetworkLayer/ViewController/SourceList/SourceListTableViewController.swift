@@ -15,7 +15,7 @@ protocol SourceListView: ListView {
 class SourceListTableViewController: UITableViewController, SourceListView, BaseTableViewController {
 
     var presenter: SourcePresenter!
-    var dataSource: TableViewDataSource<Any, SourceTableViewCell>!
+    var dataSource: TableDataSource<Source, SourceTableViewCell>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class SourceListTableViewController: UITableViewController, SourceListView, Base
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.registerReusableCell(type: SourceTableViewCell.self)
-        dataSource = TableViewDataSource<Any, SourceTableViewCell>()
+        dataSource = TableDataSource<Source, SourceTableViewCell>()
         tableView.dataSource = dataSource
         
         presenter.viewDidLoad()
@@ -40,7 +40,9 @@ class SourceListTableViewController: UITableViewController, SourceListView, Base
     
     // MARK: - SourceListView
     func refreshList(dataArray: [Any]) {
-        self.show(items: dataArray)
+        if let items = dataArray as? [Source] {
+            self.show(items: items)
+        }
     }
     
     func displayFetchError(title: String, message: String) {

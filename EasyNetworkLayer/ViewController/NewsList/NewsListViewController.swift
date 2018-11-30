@@ -16,7 +16,7 @@ class NewsListViewController: UIViewController, NewsListView {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
 
     var presenter: NewsPresenter!
-    var tableViewDataSource: TableViewDataSource<Any, NewsTableViewCell>!
+    var dataSource: TableDataSource<Article, NewsTableViewCell>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +28,8 @@ class NewsListViewController: UIViewController, NewsListView {
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.registerReusableCell(type: NewsTableViewCell.self)
-        tableViewDataSource = TableViewDataSource<Any, NewsTableViewCell>()
-        tableView.dataSource = tableViewDataSource
+        dataSource = TableDataSource<Article, NewsTableViewCell>()
+        tableView.dataSource = dataSource
         
         presenter.viewDidLoad()
         tableView.delegate = self
@@ -44,8 +44,10 @@ class NewsListViewController: UIViewController, NewsListView {
     }
     
     func refreshList(dataArray: [Any]) {
-        tableViewDataSource.dataArray = dataArray
-        tableView.reloadData()
+        if let items = dataArray as? [Article] {
+            dataSource.dataArray = items
+            tableView.reloadData()
+        }
     }
     
     func displayFetchError(title: String, message: String) {

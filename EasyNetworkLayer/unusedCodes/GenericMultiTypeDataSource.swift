@@ -11,7 +11,7 @@ import UIKit
 
 //typealias CellTypeData = (data: Any, type: CellProtocol.Type)
 //
-//class GenericMultiTypeDataSource: NSObject, UITableViewDataSource {
+//class GenericMultiTypeDataSource: NSObject, UITableDataSource {
 //    var data: DynamicValue<[CellTypeData]> = DynamicValue([])
 //    
 //    func numberOfSections(in tableView: UITableView) -> Int {

@@ -15,30 +15,12 @@ public protocol CellProtocol: class {
 }
 
 public protocol CellDelegateProtocol: class {
-    var delegate: Any? { get set }
+    var delegate: CellDelegate? { get set }
 }
 
-open class BaseCell: UITableViewCell, CellProtocol {
-    public func config(_ data: Any?) {
-        
-    }
+open class BaseCell: UITableViewCell {
+    public func config(_ data: Any?) {}
 }
-
-extension UITableView {
-    
-    func registerReusableCell<T: BaseCell>(type: T.Type) {
-        //        register(T.self, forCellReuseIdentifier: T.identifier)
-        print("nib: \(String(describing: type)) identifier: \(String(describing: type))Identifier")
-        register(UINib(nibName: String(describing: type), bundle: nil), forCellReuseIdentifier: "\(String(describing: type))Identifier")
-    }
-    
-    func dequeueReusableCell<T: BaseCell>(type: T.Type, indexPath: IndexPath) -> T {
-        print("dequeu identifier: \(String(describing: T.self))Identifier")
-        return dequeueReusableCell(withIdentifier: "\(String(describing: type))Identifier", for: indexPath) as! T
-    }
-}
-
-
 
 
 

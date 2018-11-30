@@ -12,8 +12,8 @@ protocol CategoryTableCellDelegate: class {
     func valueChangedCategoryStatus(isActive: Bool)
 }
 
-class CategoryTableViewCell: BaseCell, CellDelegateProtocol {
-    var delegate: Any?
+class CategoryTableViewCell: BaseCell, CellDelegateProtocol, CellProtocol {
+    var delegate: CellDelegate?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var activeSwitch: UISwitch!
@@ -38,8 +38,8 @@ class CategoryTableViewCell: BaseCell, CellDelegateProtocol {
         }
     }
     
-    override func config(_ data: Any?) {
-        if let item = data as? NewsCategory {
+    func config(_ data: NewsCategory?) {
+        if let item = data {
             titleLabel.text = item.rawValue
         }
     }

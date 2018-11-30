@@ -1,5 +1,5 @@
 //
-//  TableViewDataSource.swift
+//  TableDataSource.swift
 //  EasyNetworkLayer
 //
 //  Created by ınomera on 29.11.2018.
@@ -20,12 +20,12 @@ public protocol BaseTableDataSource {
 
 public protocol BaseTableViewController: class {
     var tableView: UITableView! { get }
-    associatedtype TableDataSource: BaseTableDataSource
-    var dataSource: TableDataSource! { get set }
+    associatedtype DataSource: BaseTableDataSource
+    var dataSource: DataSource! { get set }
 }
 
 extension BaseTableViewController {
-    public func show(items: [TableDataSource.Model]) {
+    public func show(items: [DataSource.Model]) {
         dataSource.dataArray = items
         tableView.reloadData()
     }

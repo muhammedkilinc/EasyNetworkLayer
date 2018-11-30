@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-//class GenericDataSource: NSObject, UITableViewDataSource {
+//class GenericDataSource: NSObject, UITableDataSource {
 //    var data: DynamicValue<[Any]> = DynamicValue([])
 //    var cellType: CellProtocol.Type!
 //    

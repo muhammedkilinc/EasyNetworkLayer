@@ -27,6 +27,12 @@
 		F580ED7521AFDA50001F353A /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED7321AFDA50001F353A /* CategoryTableViewCell.swift */; };
 		F580ED7621AFDA50001F353A /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F580ED7421AFDA50001F353A /* CategoryTableViewCell.xib */; };
 		F580ED7821B00531001F353A /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED7721B00531001F353A /* TableDataSource.swift */; };
+		F580ED8121B09206001F353A /* MultiTypeTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED8021B09206001F353A /* MultiTypeTableViewDataSource.swift */; };
+		F580ED8321B12C0D001F353A /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED8221B12C0D001F353A /* UITableView+Utils.swift */; };
+		F580ED8521B12D9D001F353A /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED8421B12D9D001F353A /* ListView.swift */; };
+		F580ED8721B12DB5001F353A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED8621B12DB5001F353A /* LoadingView.swift */; };
+		F580ED8921B12DD3001F353A /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED8821B12DD3001F353A /* ListPresenter.swift */; };
+		F580ED8B21B12DE5001F353A /* FetchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580ED8A21B12DE5001F353A /* FetchListPresenter.swift */; };
 		F5FF0FF12191C8B80083FE03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */; };
 		F5FF0FF62191C8B80083FE03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5FF0FF42191C8B80083FE03 /* Main.storyboard */; };
 		F5FF0FF82191C8BC0083FE03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5FF0FF72191C8BC0083FE03 /* Assets.xcassets */; };
@@ -92,6 +98,12 @@
 		F580ED7321AFDA50001F353A /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		F580ED7421AFDA50001F353A /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		F580ED7721B00531001F353A /* TableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
+		F580ED8021B09206001F353A /* MultiTypeTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTypeTableViewDataSource.swift; sourceTree = "<group>"; };
+		F580ED8221B12C0D001F353A /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
+		F580ED8421B12D9D001F353A /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		F580ED8621B12DB5001F353A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		F580ED8821B12DD3001F353A /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		F580ED8A21B12DE5001F353A /* FetchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchListPresenter.swift; sourceTree = "<group>"; };
 		F5FF0FED2191C8B80083FE03 /* EasyNetworkLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyNetworkLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5FF0FF52191C8B80083FE03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,12 +186,12 @@
 			isa = PBXGroup;
 			children = (
 				F5630B3921A8205100C90746 /* BaseProtocol.swift */,
+				F580ED8D21B12DFB001F353A /* View */,
+				F580ED8C21B12DEE001F353A /* Presenter */,
 				F580ED0A21AC2E4E001F353A /* Wireframe.swift */,
 				F580ED1C21AD2824001F353A /* RootWireframe.swift */,
-				F580ED2021AD2862001F353A /* NavigationContainer.swift */,
 				F580ED2221AD289B001F353A /* ViewFactory.swift */,
-				F580ED7721B00531001F353A /* TableDataSource.swift */,
-				F54F6377219EBDBD00E53BF7 /* TableViewDataSource.swift */,
+				F580ED2021AD2862001F353A /* NavigationContainer.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -191,6 +203,46 @@
 				F5630B3621A81CEB00C90746 /* NewsListPresenter.swift */,
 			);
 			path = NewsList;
+			sourceTree = "<group>";
+		};
+		F580ED8C21B12DEE001F353A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F580ED8821B12DD3001F353A /* ListPresenter.swift */,
+				F580ED8A21B12DE5001F353A /* FetchListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F580ED8D21B12DFB001F353A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F580ED8421B12D9D001F353A /* ListView.swift */,
+				F580ED8621B12DB5001F353A /* LoadingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F580ED8E21B12E33001F353A /* TableViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				F580ED7721B00531001F353A /* TableDataSource.swift */,
+				F54F6377219EBDBD00E53BF7 /* TableViewDataSource.swift */,
+				F580ED8021B09206001F353A /* MultiTypeTableViewDataSource.swift */,
+			);
+			path = TableViewDataSource;
+			sourceTree = "<group>";
+		};
+		F580ED8F21B12E65001F353A /* CategoryList */ = {
+			isa = PBXGroup;
+			children = (
+				F580ED6721AFD68F001F353A /* NewsCategoryViewController.swift */,
+				F580ED6921AFD6B1001F353A /* NewsCategoryUI.swift */,
+				F580ED6B21AFD6BD001F353A /* NewsCategoryWireframe.swift */,
+				F580ED6D21AFD6C8001F353A /* NewsCategoryPresenter.swift */,
+				F580ED6F21AFD925001F353A /* NewCategory.swift */,
+			);
+			path = CategoryList;
 			sourceTree = "<group>";
 		};
 		F5FF0FE42191C8B80083FE03 = {
@@ -220,6 +272,8 @@
 				F5FF101F2191CAE70083FE03 /* Network */,
 				F5FF102C2191E3120083FE03 /* Models */,
 				F5FF104A21945F6A0083FE03 /* Extensions */,
+				F580ED8E21B12E33001F353A /* TableViewDataSource */,
+				F5630B3521A81CCC00C90746 /* Base */,
 				F5FF104C21945F8B0083FE03 /* ViewController */,
 				F5FF104B21945F7D0083FE03 /* Cell */,
 				F5FF0FF42191C8B80083FE03 /* Main.storyboard */,
@@ -286,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				F5FF103621942F970083FE03 /* CellProtocol.swift */,
+				F580ED8221B12C0D001F353A /* UITableView+Utils.swift */,
 				F5FF103A21942FE60083FE03 /* SourceTableViewCell.swift */,
 				F5FF103B21942FE60083FE03 /* SourceTableViewCell.xib */,
 				F5FF1042219452C80083FE03 /* NewsTableViewCell.swift */,
@@ -299,12 +354,7 @@
 		F5FF104C21945F8B0083FE03 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F580ED6721AFD68F001F353A /* NewsCategoryViewController.swift */,
-				F580ED6921AFD6B1001F353A /* NewsCategoryUI.swift */,
-				F580ED6B21AFD6BD001F353A /* NewsCategoryWireframe.swift */,
-				F580ED6D21AFD6C8001F353A /* NewsCategoryPresenter.swift */,
-				F580ED6F21AFD925001F353A /* NewCategory.swift */,
-				F5630B3521A81CCC00C90746 /* Base */,
+				F580ED8F21B12E65001F353A /* CategoryList */,
 				F5630B3421A7E3FD00C90746 /* SourceList */,
 				F5630B3821A8203200C90746 /* NewsList */,
 			);
@@ -447,6 +497,7 @@
 			files = (
 				F5FF1041219451200083FE03 /* NewsListViewController.swift in Sources */,
 				F5FF103F219447C50083FE03 /* Cachable.swift in Sources */,
+				F580ED8321B12C0D001F353A /* UITableView+Utils.swift in Sources */,
 				F54F6376219EBD7B00E53BF7 /* GenericDataSource.swift in Sources */,
 				F5630B3A21A8205100C90746 /* BaseProtocol.swift in Sources */,
 				F5FF1047219455550083FE03 /* UIViewController+Utils.swift in Sources */,
@@ -459,6 +510,7 @@
 				F580ED7021AFD925001F353A /* NewCategory.swift in Sources */,
 				F5630B3121A7DEA700C90746 /* SourceListPresenter.swift in Sources */,
 				F5FF103C21942FE60083FE03 /* SourceTableViewCell.swift in Sources */,
+				F580ED8B21B12DE5001F353A /* FetchListPresenter.swift in Sources */,
 				F5630B3721A81CEC00C90746 /* NewsListPresenter.swift in Sources */,
 				F5FF10252191CBDB0083FE03 /* FetchResult.swift in Sources */,
 				F580ED1F21AD2840001F353A /* SourcesWireframe.swift in Sources */,
@@ -467,14 +519,18 @@
 				F580ED7821B00531001F353A /* TableDataSource.swift in Sources */,
 				F5FF10292191DCFD0083FE03 /* Source.swift in Sources */,
 				F580ED6821AFD68F001F353A /* NewsCategoryViewController.swift in Sources */,
+				F580ED8121B09206001F353A /* MultiTypeTableViewDataSource.swift in Sources */,
 				F5FF1049219457D00083FE03 /* UIStoryboard+Utils.swift in Sources */,
 				F580ED6E21AFD6C8001F353A /* NewsCategoryPresenter.swift in Sources */,
+				F580ED8721B12DB5001F353A /* LoadingView.swift in Sources */,
 				F5FF0FF12191C8B80083FE03 /* AppDelegate.swift in Sources */,
+				F580ED8921B12DD3001F353A /* ListPresenter.swift in Sources */,
 				F5FF10212191CB110083FE03 /* Fetcher.swift in Sources */,
 				F580ED2321AD289B001F353A /* ViewFactory.swift in Sources */,
 				F580ED6C21AFD6BD001F353A /* NewsCategoryWireframe.swift in Sources */,
 				F580ED2121AD2862001F353A /* NavigationContainer.swift in Sources */,
 				F5FF103721942F970083FE03 /* CellProtocol.swift in Sources */,
+				F580ED8521B12D9D001F353A /* ListView.swift in Sources */,
 				F5FF10232191CBAB0083FE03 /* FetchError.swift in Sources */,
 				F5FF10322192C7290083FE03 /* Encoders.swift in Sources */,
 				F5FF10342192C9A80083FE03 /* FetchTask.swift in Sources */,
