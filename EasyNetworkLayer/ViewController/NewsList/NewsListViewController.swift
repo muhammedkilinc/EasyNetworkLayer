@@ -16,7 +16,7 @@ class NewsListViewController: UIViewController, NewsListView {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
 
     var presenter: NewsPresenter!
-    var dataSource: TableDataSource<Article, NewsTableViewCell>!
+    var dataSource: NewTableDataSource<Article, NewsTableViewCell>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class NewsListViewController: UIViewController, NewsListView {
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.registerReusableCell(type: NewsTableViewCell.self)
-        dataSource = TableDataSource<Article, NewsTableViewCell>()
+        dataSource = NewTableDataSource<Article, NewsTableViewCell>()
         tableView.dataSource = dataSource
         
         presenter.viewDidLoad()

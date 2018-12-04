@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public protocol BaseEntity {
-    var identifier: String { get }
+//    var identifier: String { get }
 }
 extension BaseEntity {
     
@@ -69,10 +69,17 @@ class MultiTypeDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.dataSet[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: item.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier(item), for: indexPath)
         
         bindCellAndData(cell, item)
         return cell
+    }
+    
+    func cellIdentifier(_ item: BaseEntity) -> String {
+        if let _ = item as? Source {
+            return String(describing: SourceTableViewCell.self)
+        }
+        return ""
     }
     
     

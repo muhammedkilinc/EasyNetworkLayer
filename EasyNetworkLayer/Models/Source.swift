@@ -18,6 +18,7 @@ extension SourceResponse: Decodable {
 
 
 public struct Source {
+    
     public var id: String
     public var name: String
     public var description: String?
@@ -25,6 +26,10 @@ public struct Source {
     public var language: String?
     public var country: String?
     public var url: URL?
+}
+
+extension Source: BaseEntity {
+
 }
 
 extension Source: Decodable {
