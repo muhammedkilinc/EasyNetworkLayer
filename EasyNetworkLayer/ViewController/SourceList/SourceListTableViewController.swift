@@ -15,7 +15,7 @@ protocol SourceListView: ListView {
 class SourceListTableViewController: UITableViewController, SourceListView, BaseTableViewController {
 
     var presenter: SourcePresenter!
-    var dataSource: TableDataSource<Source, SourceTableViewCell>!
+    var dataSource: NewTableDataSource<Source, SourceTableViewCell>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class SourceListTableViewController: UITableViewController, SourceListView, Base
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.registerReusableCell(type: SourceTableViewCell.self)
-        dataSource = TableDataSource<Source, SourceTableViewCell>()
+        dataSource = NewTableDataSource<Source, SourceTableViewCell>()
         tableView.dataSource = dataSource
         
         presenter.viewDidLoad()

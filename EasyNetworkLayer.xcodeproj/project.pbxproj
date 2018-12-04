@@ -42,6 +42,7 @@
 		F580EDA221B13D89001F353A /* NewsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580EDA121B13D89001F353A /* NewsCategory.swift */; };
 		F580EDA421B13DA9001F353A /* NewsCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580EDA321B13DA9001F353A /* NewsCountry.swift */; };
 		F580EDA721B1566C001F353A /* CellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580EDA621B1566C001F353A /* CellDelegate.swift */; };
+		F580EDA921B18E64001F353A /* SingleTypeTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580EDA821B18E64001F353A /* SingleTypeTableViewDataSource.swift */; };
 		F5FF0FF12191C8B80083FE03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */; };
 		F5FF0FF62191C8B80083FE03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5FF0FF42191C8B80083FE03 /* Main.storyboard */; };
 		F5FF0FF82191C8BC0083FE03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5FF0FF72191C8BC0083FE03 /* Assets.xcassets */; };
@@ -122,6 +123,7 @@
 		F580EDA121B13D89001F353A /* NewsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCategory.swift; sourceTree = "<group>"; };
 		F580EDA321B13DA9001F353A /* NewsCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCountry.swift; sourceTree = "<group>"; };
 		F580EDA621B1566C001F353A /* CellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDelegate.swift; sourceTree = "<group>"; };
+		F580EDA821B18E64001F353A /* SingleTypeTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTypeTableViewDataSource.swift; sourceTree = "<group>"; };
 		F5FF0FED2191C8B80083FE03 /* EasyNetworkLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyNetworkLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5FF0FF02191C8B80083FE03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5FF0FF52191C8B80083FE03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				F580EDA621B1566C001F353A /* CellDelegate.swift */,
 				F54F6377219EBDBD00E53BF7 /* TableViewDataSource.swift */,
 				F580ED8021B09206001F353A /* MultiTypeTableViewDataSource.swift */,
+				F580EDA821B18E64001F353A /* SingleTypeTableViewDataSource.swift */,
 			);
 			path = TableViewDataSource;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				F54F6378219EBDBD00E53BF7 /* TableViewDataSource.swift in Sources */,
 				F580ED0B21AC2E4E001F353A /* Wireframe.swift in Sources */,
 				F580ED7821B00531001F353A /* TableDataSource.swift in Sources */,
+				F580EDA921B18E64001F353A /* SingleTypeTableViewDataSource.swift in Sources */,
 				F5FF10292191DCFD0083FE03 /* Source.swift in Sources */,
 				F580ED9A21B1329A001F353A /* CustomizeWireframe.swift in Sources */,
 				F580ED6821AFD68F001F353A /* NewsCategoryViewController.swift in Sources */,

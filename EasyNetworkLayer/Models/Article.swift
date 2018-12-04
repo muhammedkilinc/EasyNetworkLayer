@@ -32,3 +32,7 @@ public struct Article {
 extension Article: Decodable {
     
 }
+
+extension Article: BaseEntity {
+    
+}

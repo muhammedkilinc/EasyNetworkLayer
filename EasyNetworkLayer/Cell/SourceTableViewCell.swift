@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SourceTableViewCell: BaseCell, CellProtocol {
+class SourceTableViewCell: BaseMultiCell<Source> {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
@@ -24,7 +24,7 @@ class SourceTableViewCell: BaseCell, CellProtocol {
         // Configure the view for the selected state
     }
     
-    func config(_ data: Source?) {
+    override func config(_ data: Source?) {
         if let item = data {
             titleLabel?.text = item.name
             descLabel?.text = item.description
