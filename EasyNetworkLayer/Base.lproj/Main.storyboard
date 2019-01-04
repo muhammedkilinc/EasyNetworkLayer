@@ -69,7 +69,7 @@
         <!--News List View Controller-->
         <scene sceneID="oDH-9T-2Kv">
             <objects>
-                <viewController storyboardIdentifier="NewsListViewController" id="gSn-JB-dUC" customClass="NewsListViewController" customModule="EasyNetworkLayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsListViewControllerIdentifier" id="gSn-JB-dUC" customClass="NewsListViewController" customModule="EasyNetworkLayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gGh-iQ-qhX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xel-hK-tWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="133"/>
+            <point key="canvasLocation" x="1534" y="107"/>
         </scene>
     </scenes>
 </document>
